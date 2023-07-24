@@ -1,10 +1,8 @@
-const express = require("express"),
+const app = require("express")(),
   cors = require("cors"),
   morgan = require("morgan"),
   mongoose = require("mongoose"),
   bodyParser = require("body-parser");
-
-const app = express();
 
 app
   .use(cors())
