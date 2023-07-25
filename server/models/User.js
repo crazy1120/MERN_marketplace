@@ -1,6 +1,7 @@
-const Schema = require("mongoose").Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const User = new Schema({
+const UserSchema = new Schema({
   name: { type: String, required: true, match: /[a-z]/ },
   email: { type: String, required: true },
   birthday: { type: Date },
@@ -12,6 +13,10 @@ const User = new Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-User.path("name").set((name) => capitalize(name));
+UserSchema.pre("save", function (next) {
+  this.name =
+    this.name.trim()[0].toUpperCase() + this.name.slice(1).toLowerCase();
+  next();
+});
 
-module.exports = User;
+module.exports = mongoose.model("user", UserSchema);
