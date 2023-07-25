@@ -6,7 +6,7 @@ const Product = new Schema({
   broker: { type: Schema.ObjectId, ref: "User" },
   price: { type: Number, required: true },
   quantity: { type: Number, required: true },
-  unit: { type: String },
+  unit: String,
   category: { type: Schema.ObjectId, ref: "Category", required: true },
   likes: { type: Number, default: 0 },
   ratings: { type: Number, default: 0 },

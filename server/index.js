@@ -3,10 +3,10 @@ const app = require("express")(),
   cors = require("cors"),
   morgan = require("morgan"),
   bodyParser = require("body-parser"),
-  { PORT, connectDB } = require("./config");
+  { keys, connectDB } = require("./config");
 
 // MongoDB connection
-connectDB("dev");
+connectDB();
 
 // Third-party middlewares
 app
@@ -25,7 +25,7 @@ app.use((err, req, res, next) => {
   res.json({ message: err.message || "An unknown error occurred!" });
 });
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(keys.port, () => console.log(`Server started on port ${keys.port}`));
 
 /**
  * extra

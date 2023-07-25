@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
-const db = (dbName) => `mongodb://127.0.0.1:27017/${dbName}`;
 
-const connectDB = async (dbName) => {
+module.exports = async () => {
   try {
-    await mongoose.connect(db(dbName), {
+    await mongoose.connect(require("./keys").mongoURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -14,5 +13,3 @@ const connectDB = async (dbName) => {
     process.exit(1);
   }
 };
-
-module.exports = connectDB;
