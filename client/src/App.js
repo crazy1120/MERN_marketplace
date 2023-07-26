@@ -1,13 +1,39 @@
-import "./app.css";
+import React from "react";
+import { Container, Typography, Box, Link } from "@mui/material";
+import ProTip from "./proTip";
+import Blog from "./comps/blog/Blog";
 
-const app = () => {
+const Copyright = () => {
   return (
-    <div className="app">
-      <header className="app-header">header</header>
-      <main className="app-main">main</main>
-      <footer className="app-footer">footer</footer>
-    </div>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center">
+      {"Copyright © "}
+      <Link
+        color="inherit"
+        href="https://mui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}.
+    </Typography>
   );
 };
 
-export default app;
+const App = () => (
+  <Container maxWidth="sm">
+    <Box sx={{ my: 4 }}>
+      <Typography
+        variant="h4"
+        component="h1"
+        gutterBottom>
+        Material UI Create React App example with styled-components
+      </Typography>
+      <Blog />
+      <ProTip />
+      <Copyright />
+    </Box>
+  </Container>
+);
+
+export default App;
