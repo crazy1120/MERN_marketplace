@@ -29,7 +29,7 @@ module.exports = (data) => {
   }
 
   // Password and it's confirm field validator
-  if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
+  if (!Validator.isLength(data.password, { min: 3, max: 30 })) {
     errors.password = "Password is either too short or too long.";
   }
   if (!Validator.equals(data.password, data.confirm)) {

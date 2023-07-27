@@ -54,10 +54,10 @@ const signIn = async (req, res) => {
   const pwdVerify = await bcrypt.compare(password, user.password);
 
   if (pwdVerify) {
-    const payload = { name: user.name, email: user.email };
+    const payload = { name: user.name, email: user.email, level: user.level };
 
     jwt.sign(payload, keys.secretOrKey, { expiresIn: "24h" }, (err, token) =>
-      res.json(`Bearer ${token}`)
+      res.json({ token: `Bearer ${token}` })
     );
   } else {
     errors.password = "Incorrect password entered.";

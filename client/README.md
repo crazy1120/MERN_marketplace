@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# React-Landing-Page-Template
+Quickly bring up a landing page for your app on desktop and mobile.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live Demo
+https://voiceqna.com/mirror
 
-## Available Scripts
+https://voiceqna.com
 
-In the project directory, you can run:
+https://amplichat.com
 
-### `npm start`
+## Desktop Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![desktop_gif](https://github.com/sugia/React-Landing-Page-Template/assets/2340878/2c80683a-b574-4d8f-8200-ae3984bb9794)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Mobile Demo
 
-### `npm test`
+![mobile_gif](https://github.com/sugia/React-Landing-Page-Template/assets/2340878/fc8b7f2f-734c-4192-bd87-a497322280d2)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
+```
+git clone https://github.com/sugia/React-Landing-Page-Template.git
 
-### `npm run build`
+cd React-Landing-Page-Template
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm i
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm run start
+```
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Website metadata can be found in the ```public/``` folder.
 
-### `npm run eject`
+Parameters to customize ```src/Desktop.js``` and ```src/Mobile.js``` can be found in ```src/store/Context.js```.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Images should be saved inside the ```src/images/``` folder.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This codebase is licensed under [Apache License 2.0](https://github.com/sugia/React-Landing-Page-Template/blob/main/LICENSE). For more information, see the LICENSE file in this repository.
