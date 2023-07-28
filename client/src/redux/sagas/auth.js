@@ -1,39 +1,22 @@
-import axios from "./axios";
-import { all, call, put, takeLatest } from "redux-saga/effects";
+import api from "./api";
+import { put, takeEvery } from "redux-saga/effects";
 import jwtDecode from "jwt-decode";
 
-import {
-  signInFailure,
-  signInSuccess,
-  // signUpFailure,
-  // signUpSuccess,
-} from "../actions/auth";
+import * as actions from "../slices/auth";
 
-const signIn = async (email, password) => {
-  const res = await axios.post("/signIn", { email, password });
-  const { token } = res.data;
-  localStorage.token = token;
-  return jwtDecode(token);
-};
-
-// const signUp = async (email, password) => {
-// await axios.post("/signUp", {
-// email,
-// password,
-// });
-// };
-
-export function* signInWithCredentials({ payload: { email, password } }) {
+function* signInWithCredentials({ payload: { email, password } }) {
   try {
-    const user = yield signIn(email, password);
-    yield put(signInSuccess(user));
+    const res = yield api.post("/signIn", { email, password });
+    const { token } = !!res.data.token ? res.data : null;
+    localStorage.token = token;
+    yield put(actions.signInSuccess({ token, user: jwtDecode(token) }));
   } catch (err) {
-    yield put(signInFailure(err));
+    yield put(actions.signInFailure(err.response.data));
   }
 }
 
-export function* onSignInStart() {
-  yield takeLatest("SIGNIN_START", signInWithCredentials);
+export default function* authSagas() {
+  yield takeEvery("auth/signInStart", signInWithCredentials);
 }
 
 // export function* signUpWithCredentials({ payload: { email, password } }) {
@@ -56,11 +39,3 @@ export function* onSignInStart() {
 // export function* onSignUpSuccess() {
 //   yield takeLatest("SIGNUp_SUCCESS", signInAftersignUp);
 // }
-
-export default function* authSagas() {
-  yield all([
-    call(onSignInStart),
-    //  call(onSignUpStart),
-    // call(onSignUpSuccess)
-  ]);
-}
