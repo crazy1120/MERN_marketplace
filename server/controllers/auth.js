@@ -18,6 +18,7 @@ const signUp = async (req, res) => {
     return res.status(400).json(errors);
   }
 
+  const levelOption = { seller: 1, broker: 2, buyer: 3 };
   const newUser = new User({
     name,
     email,
@@ -26,10 +27,8 @@ const signUp = async (req, res) => {
     location,
     telephone,
     password,
+    level: levelOption[level],
   });
-
-  const levelOption = { seller: 1, broker: 2, buyer: 3 };
-  newUser.level = levelOption[level];
 
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(newUser.password, salt, async (err, hash) => {

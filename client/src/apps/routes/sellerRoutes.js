@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Products } from "../seller";
+import { AddProduct, Products } from "../seller";
 import { useEffect } from "react";
 
 const SellerRoute = ({ children }) => {
@@ -22,6 +22,14 @@ const SellerRoutes = [
     element: (
       <SellerRoute>
         <Products />
+      </SellerRoute>
+    ),
+  },
+  {
+    path: "/addProduct",
+    element: (
+      <SellerRoute>
+        <AddProduct />
       </SellerRoute>
     ),
   },
