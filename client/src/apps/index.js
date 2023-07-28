@@ -14,7 +14,7 @@ import * as Routes from "./routes";
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
   ...Routes.Public,
-  ...Routes.Seller,
+  ...Routes.Creator,
   ...Routes.Broker,
   ...Routes.Buyer,
 ]);

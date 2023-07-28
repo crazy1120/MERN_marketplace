@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Dashboard, CreateDeal } from "../seller";
+import { Dashboard, CreateDeal } from "../creator";
 import { useEffect } from "react";
 
-const SellerRoute = ({ children }) => {
+const CreatorRoute = ({ children }) => {
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
 
@@ -16,23 +16,23 @@ const SellerRoute = ({ children }) => {
   return <>{children}</>;
 };
 
-const SellerRoutes = [
+const CreatorRoutes = [
   {
     path: "/creator",
     element: (
-      <SellerRoute>
+      <CreatorRoute>
         <Dashboard />
-      </SellerRoute>
+      </CreatorRoute>
     ),
   },
   {
     path: "/createDeal",
     element: (
-      <SellerRoute>
+      <CreatorRoute>
         <CreateDeal />
-      </SellerRoute>
+      </CreatorRoute>
     ),
   },
 ];
 
-export default SellerRoutes;
+export default CreatorRoutes;

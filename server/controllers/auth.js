@@ -1,6 +1,5 @@
 const bcrypt = require("bcryptjs"),
-  jwt = require("jsonwebtoken"),
-  passport = require("passport");
+  jwt = require("jsonwebtoken");
 
 const { User } = require("../models"),
   { keys } = require("../config"),
@@ -18,7 +17,7 @@ const signUp = async (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const levelOption = { seller: 1, broker: 2, buyer: 3 };
+  const levelOption = { creator: 1, broker: 2, buyer: 3 };
   const newUser = new User({
     name,
     email,
@@ -34,7 +33,8 @@ const signUp = async (req, res) => {
     bcrypt.hash(newUser.password, salt, async (err, hash) => {
       if (err) throw err;
       newUser.password = hash;
-      if (await newUser.save()) res.json(newUser);
+      await newUser.save();
+      return res.json({ success: "You are successfully registered." });
     });
   });
 };
@@ -53,7 +53,12 @@ const signIn = async (req, res) => {
   const pwdVerify = await bcrypt.compare(password, user.password);
 
   if (pwdVerify) {
-    const payload = { name: user.name, email: user.email, level: user.level };
+    const payload = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      level: user.level,
+    };
 
     jwt.sign(payload, keys.secretOrKey, { expiresIn: "24h" }, (err, token) =>
       res.json({ token: `Bearer ${token}` })
