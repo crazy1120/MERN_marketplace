@@ -4,7 +4,6 @@ import { Button, Checkbox, Form, Input } from "antd";
 
 import CommonLayout from "../layout/common";
 import { signInStart } from "../../redux/slices/auth";
-// import { signInStart } from "../../redux/actions/auth";
 
 const SignInForm = () => {
   const dispatch = useDispatch();

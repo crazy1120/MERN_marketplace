@@ -1,6 +1,6 @@
-import PublicRoutes from "./publicRoutes";
-import SellerRoutes from "./sellerRoutes";
-import BuyerRoutes from "./buyerRoutes";
-import BrokerRoutes from "./buyerRoutes";
+import Public from "./publicRoutes";
+import Seller from "./sellerRoutes";
+import Buyer from "./buyerRoutes";
+import Broker from "./buyerRoutes";
 
-export { PublicRoutes, SellerRoutes, BrokerRoutes, BuyerRoutes };
+export { Public, Seller, Broker, Buyer };

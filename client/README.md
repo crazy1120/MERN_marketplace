@@ -1,6 +1,9 @@
 # React-Landing-Page-Template
 Quickly bring up a landing page for your app on desktop and mobile.
 
+sponsored deals section for creators and the ability for these creators to make them and track them on his dashboard.  
+well there must be a creator dashboard in which he can click on create a button 'Create deal', after that he can write down the title, description, price and more info which we can add later. These deals are shown on public on the creator's profile page. the creator in his dashboard must see how many views this section got, sales and other info we can add later
+
 ## Live Demo
 https://voiceqna.com/mirror
 

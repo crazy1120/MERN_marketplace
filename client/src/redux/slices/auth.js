@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import jwtDecode from "jwt-decode";
 
-const token = localStorage.token;
+const token = localStorage.token || null;
 const user = token ? jwtDecode(token) : null;
 
 const initialState = {
@@ -21,20 +21,26 @@ const authSlice = createSlice({
       state.errors = null;
     },
     signInSuccess: (state, { payload }) => {
-      state.token = payload.token;
+      state.token = payload;
       state.isAuthenticated = true;
       state.loading = false;
-      state.user = payload.user;
+      state.user = jwtDecode(payload);
       state.errors = null;
     },
     signInFailure: (state, { payload }) => {
       state.loading = false;
       state.errors = payload;
     },
+    signOut: (state) => {
+      state.token = null;
+      state.isAuthenticated = false;
+      state.user = null;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { signInStart, signInSuccess, signInFailure } = authSlice.actions;
+export const { signInStart, signInSuccess, signInFailure, signOut } =
+  authSlice.actions;
 
 export default authSlice.reducer;

@@ -9,8 +9,8 @@ const BrokerRoute = ({ children }) => {
   const auth = useSelector((state) => state.auth);
 
   useEffect(() => {
-    !auth.isAuthenticated && navigate("/signIn");
-    auth.user.level !== 2 && navigate("/");
+    if (!auth.isAuthenticated) navigate("/signIn");
+    else if (auth.user.level !== 2) navigate("/");
   }, [navigate, auth]);
 
   return <>{children}</>;

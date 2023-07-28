@@ -9,8 +9,8 @@ const BuyerRoute = ({ children }) => {
   const auth = useSelector((state) => state.auth);
 
   useEffect(() => {
-    !auth.isAuthenticated && navigate("/signIn");
-    auth.user.level !== 3 && navigate("/");
+    if (!auth.isAuthenticated) navigate("/signIn");
+    else if (auth.user.level !== 3) navigate("/");
   }, [navigate, auth]);
 
   return <>{children}</>;

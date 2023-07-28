@@ -1,6 +1,5 @@
 import api from "./api";
 import { put, takeEvery } from "redux-saga/effects";
-import jwtDecode from "jwt-decode";
 
 import * as actions from "../slices/auth";
 
@@ -9,7 +8,7 @@ function* signInWithCredentials({ payload: { email, password } }) {
     const res = yield api.post("/signIn", { email, password });
     const { token } = !!res.data.token ? res.data : null;
     localStorage.token = token;
-    yield put(actions.signInSuccess({ token, user: jwtDecode(token) }));
+    yield put(actions.signInSuccess(token));
   } catch (err) {
     yield put(actions.signInFailure(err.response.data));
   }

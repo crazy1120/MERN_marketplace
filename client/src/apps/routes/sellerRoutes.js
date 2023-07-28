@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { AddProduct, Products } from "../seller";
+import { Dashboard, CreateDeal } from "../seller";
 import { useEffect } from "react";
 
 const SellerRoute = ({ children }) => {
@@ -9,8 +9,8 @@ const SellerRoute = ({ children }) => {
   const auth = useSelector((state) => state.auth);
 
   useEffect(() => {
-    !auth.isAuthenticated && navigate("/signIn");
-    auth.user.level !== 1 && navigate("/");
+    if (!auth.isAuthenticated) navigate("/signIn");
+    else if (auth.user.level !== 1) navigate("/");
   }, [navigate, auth]);
 
   return <>{children}</>;
@@ -18,18 +18,18 @@ const SellerRoute = ({ children }) => {
 
 const SellerRoutes = [
   {
-    path: "/myProducts",
+    path: "/creator",
     element: (
       <SellerRoute>
-        <Products />
+        <Dashboard />
       </SellerRoute>
     ),
   },
   {
-    path: "/addProduct",
+    path: "/createDeal",
     element: (
       <SellerRoute>
-        <AddProduct />
+        <CreateDeal />
       </SellerRoute>
     ),
   },

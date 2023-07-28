@@ -1,4 +1,4 @@
-import Products from "./products";
-import AddProduct from "./addProduct";
+import Dashboard from "./dashboard";
+import CreateDeal from "./createDeal";
 
-export { Products, AddProduct };
+export { Dashboard, CreateDeal };

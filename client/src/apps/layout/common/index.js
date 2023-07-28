@@ -1,4 +1,4 @@
-import { Col, Row } from "antd";
+import { Col } from "antd";
 import Header from "./header";
 
 export { Header };
@@ -12,7 +12,7 @@ const CommonLayout = ({ children }) => {
         <Col
           span={18}
           offset={3}>
-          <Row justify={"center"}>{children}</Row>
+          {children}
         </Col>
       </div>
     </div>

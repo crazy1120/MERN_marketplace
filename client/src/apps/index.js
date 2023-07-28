@@ -1,36 +1,39 @@
 // import { useReducer } from "react";
+import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
+import { setAuthToken } from "../redux/utils";
+import { signInSuccess, signOut } from "../redux/slices/auth";
 // Pages
 import Landing from "./landing";
 
-// Seller's routes
-import {
-  BrokerRoutes,
-  BuyerRoutes,
-  PublicRoutes,
-  SellerRoutes,
-} from "./routes";
-
-// import { Context, initialState } from "../redux/Context";
-// import { reducer } from "../redux/reducer";
+// Routes
+import * as Routes from "./routes";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
-  ...PublicRoutes,
-  ...SellerRoutes,
-  ...BrokerRoutes,
-  ...BuyerRoutes,
+  ...Routes.Public,
+  ...Routes.Seller,
+  ...Routes.Broker,
+  ...Routes.Buyer,
 ]);
 
 const Apps = () => {
-  // const [state, dispatch] = useReducer(reducer, initialState);
-  // const value = { state, dispatch };
-  return (
-    // <Context.Provider value={value}>
-    <RouterProvider router={router} />
-    // </Context.Provider>
-  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.token;
+    if (token) {
+      setAuthToken(token);
+      dispatch(signInSuccess(token));
+    }
+    window.addEventListener("storage", () => {
+      if (!localStorage.token) dispatch(signOut());
+    });
+  }, [dispatch]);
+
+  return <RouterProvider router={router} />;
 };
 
 export default Apps;
