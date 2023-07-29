@@ -12,7 +12,7 @@ const PublicRoute = ({ children }) => {
     if (auth.isAuthenticated) {
       switch (auth.user.level) {
         case 1:
-          navigate("/creator");
+          navigate("/deals");
           break;
         case 2:
           navigate("/myTasks");

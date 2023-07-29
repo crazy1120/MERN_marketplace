@@ -11,7 +11,8 @@ const CommonLayout = ({ children }) => {
       <div style={{ flex: 1, display: "flex", alignItems: "center" }}>
         <Col
           span={18}
-          offset={3}>
+          offset={3}
+          style={{ display: "flex", justifyContent: "center" }}>
           {children}
         </Col>
       </div>

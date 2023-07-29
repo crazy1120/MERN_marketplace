@@ -18,7 +18,7 @@ const CreatorRoute = ({ children }) => {
 
 const CreatorRoutes = [
   {
-    path: "/creator",
+    path: "/deals",
     element: (
       <CreatorRoute>
         <Dashboard />

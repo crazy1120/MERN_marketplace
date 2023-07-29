@@ -1,3 +1,2 @@
 export { setAuthToken } from "./setAuthToken";
-
-// export { setAuthToken };
+export { api } from "./api";

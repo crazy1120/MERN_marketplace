@@ -14,8 +14,8 @@ module.exports = (data) => {
   if (!Validator.isLength(data.title, { max: 30 })) {
     errors.title = "Title must be shorter than 30 characters.";
   }
-  if (!Validator.isLength(data.desc, { min: 100 })) {
-    errors.desc = "Description must be longer than 100 characters.";
+  if (!Validator.isLength(data.desc, { min: 10 })) {
+    errors.desc = "Description must be longer than 10 characters.";
   }
 
   // Price field validator

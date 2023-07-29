@@ -4,17 +4,14 @@ import { Button, Divider, Form, Input, Row, Select } from "antd";
 import { formContext } from "../../redux/context";
 import { useRedirect } from "../hooks";
 
-const DealForm = () => {
+const DealForm = (props) => {
   const { state } = useContext(formContext);
   const redirect = useRedirect();
 
-  const handleSubmit = (values) => {
-    console.log("object");
-    // dispatch(signInStart(values));
-  };
+  const handleSubmit = (values) => props.handleSubmit(values);
 
   const handleCancel = () => {
-    redirect("/creator");
+    redirect("/deals");
   };
 
   return (
@@ -48,6 +45,7 @@ const DealForm = () => {
               style={{ flex: 1 }}
             />
             <Select
+              value="US$"
               style={{
                 width: 80,
                 marginLeft: "8px",
@@ -61,7 +59,7 @@ const DealForm = () => {
           <Button
             type="primary"
             htmlType="submit">
-            Create
+            {props.action}
           </Button>
           <Button
             htmlType="button"
