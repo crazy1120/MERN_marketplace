@@ -1,8 +1,8 @@
 // Third-party modules
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Button, Descriptions } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, Card } from "antd";
 
 // Components
 import CommonLayout from "../layout/common";
@@ -10,34 +10,38 @@ import CommonLayout from "../layout/common";
 // Tools
 import { actions } from "../../redux/slices/deal";
 
-const Deal = () => {
+const Deal = ({ feature }) => {
   return (
-    <Descriptions title="User Info">
-      <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
-      <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
-      <Descriptions.Item label="Live">Hangzhou, Zhejiang</Descriptions.Item>
-      <Descriptions.Item label="Remark">empty</Descriptions.Item>
-      <Descriptions.Item label="Address">
-        No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-      </Descriptions.Item>
-    </Descriptions>
+    <Card
+      type="inner"
+      style={{ marginBottom: "20px" }}
+      title={feature.title}>
+      {feature.desc}
+      <br />
+      Price: {feature.price}
+    </Card>
   );
 };
 
 // Main Component
-const Products = () => {
+const Deals = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(actions.getDealsStart());
   }, []);
 
+  const state = useSelector((state) => state.deal);
+  console.log(state);
   return (
     <CommonLayout>
       <div style={{ padding: "3% 8% 0" }}>
-        <Deal />
+        {state.deals.map((deal) => (
+          <Deal feature={deal} />
+        ))}
+
         <Link
-          style={{ marginTop: "20px", float: "right" }}
+          style={{ margin: "20px 0", float: "right" }}
           to={"/createDeal"}>
           <Button type="primary">Create Deal</Button>
         </Link>
@@ -46,4 +50,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Deals;

@@ -9,7 +9,7 @@ import { actions } from "../slices/deal";
 function* getDeals() {
   try {
     const res = yield api.get("/creator/deal");
-    yield put(actions.getDealsSuccess(res));
+    yield put(actions.getDealsSuccess(res.data));
   } catch (err) {
     yield put(actions.getDealsFailure(err.response.data));
   }

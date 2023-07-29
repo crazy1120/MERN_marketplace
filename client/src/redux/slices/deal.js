@@ -33,6 +33,7 @@ const dealSlice = createSlice({
     },
     getDealsSuccess: (state, { payload }) => {
       state.loading = false;
+      state.errors = null;
       state.deals = payload;
     },
     getDealsFailure: (state, { payload }) => {
