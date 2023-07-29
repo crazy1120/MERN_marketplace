@@ -1,6 +1,7 @@
 const Validator = require("validator");
 const isEmpty = require("./is_empty");
 
+// Validation middleware necessary when create or update deal
 module.exports = (data) => {
   const errors = {};
   const fields = ["title", "desc", "price"];

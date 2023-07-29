@@ -5,7 +5,12 @@ const { User } = require("../models"),
   { keys } = require("../config"),
   errors = {};
 
-// User sign up controller
+/**
+ * Register a new user object with user info
+ * @param {*} req - Request from frontend containing user info
+ * @param {*} res - Response from server containing success or errors msg
+ * @returns {object} - Response object
+ */
 exports.signUp = async (req, res) => {
   const { name, email, birthday, sex, location, telephone, password, level } =
     req.body;
@@ -39,7 +44,12 @@ exports.signUp = async (req, res) => {
   });
 };
 
-// User sign in controller
+/**
+ * Sign in a user with email and pwd
+ * @param {*} req - Request from frontend containing email and pwd of user
+ * @param {*} res - Response from server containing bearer token or errors msg
+ * @returns {object} - Response object
+ */
 exports.signIn = async (req, res) => {
   const { email, password } = req.body;
 

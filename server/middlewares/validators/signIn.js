@@ -1,6 +1,7 @@
 const Validator = require("validator");
 const isEmpty = require("./is_empty");
 
+// Validation middleware necessary when user signs in
 module.exports = (data) => {
   const errors = {};
   const fields = ["email", "password"];

@@ -3,13 +3,15 @@ const router = require("express").Router(),
   { validators } = require("../middlewares");
 
 /**
- * @route POST api/signUp
+ * @route api/signUp
+ * @method POST
  * @access Public
  */
 router.post("/signUp", validators.signUp, auth.signUp);
 
 /**
- * @route POST api/signIn
+ * @route api/signIn
+ * @method POST
  * @access Public
  */
 router.post("/signIn", validators.signIn, auth.signIn);

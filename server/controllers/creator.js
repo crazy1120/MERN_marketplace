@@ -1,6 +1,11 @@
 const { Deal } = require("../models");
 
-// Deal retrieve controller
+/**
+ * Retrieve deals of a creator who has authenticated
+ * @param {*} req - Request from frontend containing sign and filtering infos
+ * @param {*} res - Response from server containing array of matched deals of a creator
+ * @returns {object} - Response object
+ */
 exports.getDeals = async (req, res) => {
   const creator = req.user._id;
 
@@ -8,7 +13,12 @@ exports.getDeals = async (req, res) => {
   if (deals) return res.json(deals);
 };
 
-// Deal create controller
+/**
+ * Create a new deal with info which creator has sent
+ * @param {*} req - Request from frontend containing deal infos
+ * @param {*} res - Response from server containing success or error msg
+ * @returns {object} - Response object
+ */
 exports.createDeal = async (req, res) => {
   const creator = req.user._id,
     { title, desc, price } = req.body;
