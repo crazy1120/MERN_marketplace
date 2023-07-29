@@ -7,13 +7,13 @@ import CommonLayout from "../layout/common";
 import DealForm from "./dealForm";
 
 // Tools
-import { createDealStart } from "../../redux/slices/deal";
+import { actions } from "../../redux/slices/deal";
 
 // Main Component
 const CreateDeal = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values) => dispatch(createDealStart(values));
+  const handleSubmit = (values) => dispatch(actions.createDealStart(values));
 
   return (
     <CommonLayout>

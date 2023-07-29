@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import auth from "./auth";
-import deal from "./deal";
+import { reducer as auth } from "./auth";
+import { reducer as deal } from "./deal";
 
 const rootReducer = combineReducers({ auth, deal });
 

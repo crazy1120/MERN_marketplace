@@ -1,7 +1,7 @@
 import { api } from "../utils";
 import { put, takeEvery } from "redux-saga/effects";
 
-import * as actions from "../slices/auth";
+import { actions } from "../slices/auth";
 
 function* signInWithCredentials({ payload: { email, password } }) {
   try {

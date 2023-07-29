@@ -40,8 +40,4 @@ const authSlice = createSlice({
   },
 });
 
-// Action creators generated for each case reducer function
-export const { signInStart, signInSuccess, signInFailure, signOut } =
-  authSlice.actions;
-
-export default authSlice.reducer;
+export const { actions, reducer } = authSlice;

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Affix, Button, Col, Image, Layout, Row, Typography } from "antd";
 
 import { commonContext } from "../../../redux/context";
-import { signOut } from "../../../redux/slices/auth";
+import { actions } from "../../../redux/slices/auth";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -11,18 +11,17 @@ const Header = () => {
 
   const handleSignOut = () => {
     localStorage.removeItem("token");
-    dispatch(signOut());
+    dispatch(actions.signOut());
   };
 
   return (
     <Affix offsetTop={0}>
-      <Layout.Header style={{ background: "white", height: "70px" }}>
+      <Layout.Header style={{ background: "white", paddingBottom: "20px" }}>
         <Row
           justify="center"
           align="middle"
           style={{ backgroundColor: "white", height: "100%" }}>
           <Col
-            offset={1}
             style={{ cursor: "pointer" }}
             onClick={() => {
               window.scrollTo(0, 0);

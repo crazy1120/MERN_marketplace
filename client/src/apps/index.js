@@ -1,10 +1,10 @@
-// import { useReducer } from "react";
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { setAuthToken } from "../redux/utils";
-import { signInSuccess, signOut } from "../redux/slices/auth";
+import { actions } from "../redux/slices/auth";
+
 // Pages
 import Landing from "./landing";
 
@@ -26,10 +26,10 @@ const Apps = () => {
     const token = localStorage.token;
     if (token) {
       setAuthToken(token);
-      dispatch(signInSuccess(token));
+      dispatch(actions.signInSuccess(token));
     }
     window.addEventListener("storage", () => {
-      if (!localStorage.token) dispatch(signOut());
+      if (!localStorage.token) dispatch(actions.signOut());
     });
   }, [dispatch]);
 

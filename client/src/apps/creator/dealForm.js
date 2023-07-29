@@ -1,9 +1,12 @@
+// Third-party modules
 import { useContext } from "react";
-import { Button, Divider, Form, Input, Row, Select } from "antd";
+import { Button, Divider, Form, Input, Select } from "antd";
 
+// Tools
 import { formContext } from "../../redux/context";
 import { useRedirect } from "../hooks";
 
+// Main Component
 const DealForm = (props) => {
   const { state } = useContext(formContext);
   const redirect = useRedirect();
@@ -15,7 +18,13 @@ const DealForm = (props) => {
   };
 
   return (
-    <Row justify={"center"}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flex: 1,
+      }}>
       <Form
         name="handleDealForm"
         onFinish={handleSubmit}>
@@ -55,6 +64,7 @@ const DealForm = (props) => {
           </span>
         </Form.Item>
 
+        <Divider />
         <Form.Item style={{ display: "flex", justifyContent: "center" }}>
           <Button
             type="primary"
@@ -69,7 +79,7 @@ const DealForm = (props) => {
           </Button>
         </Form.Item>
       </Form>
-    </Row>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  filtered: [],
+  deals: [],
   deal: {
     title: "",
     desc: "",
@@ -27,11 +27,19 @@ const dealSlice = createSlice({
       state.loading = false;
       state.errors = payload;
     },
+    getDealsStart: (state) => {
+      state.loading = true;
+      state.errors = null;
+    },
+    getDealsSuccess: (state, { payload }) => {
+      state.loading = false;
+      state.deals = payload;
+    },
+    getDealsFailure: (state, { payload }) => {
+      state.loading = false;
+      state.errors = payload;
+    },
   },
 });
 
-// Action creators generated for each case reducer function
-export const { createDealStart, createDealSuccess, createDealFailure } =
-  dealSlice.actions;
-
-export default dealSlice.reducer;
+export const { actions, reducer } = dealSlice;
