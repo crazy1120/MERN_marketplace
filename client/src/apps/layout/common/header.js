@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { Affix, Button, Col, Image, Layout, Row, Typography } from "antd";
 
-import { Context } from "../../../redux/Context";
+import { commonContext } from "../../../redux/context";
 import { signOut } from "../../../redux/slices/auth";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const { state } = useContext(Context);
+  const { state } = useContext(commonContext);
 
   const handleSignOut = () => {
     localStorage.removeItem("token");

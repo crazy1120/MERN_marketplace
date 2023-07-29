@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { motion } from "framer-motion";
+
 import {
   Typography,
   Layout,
@@ -9,14 +12,9 @@ import {
   Tooltip,
   Popover,
 } from "antd";
-
 import { DownloadOutlined } from "@ant-design/icons";
 
-import { motion } from "framer-motion";
-
-import { useContext } from "react";
-
-import { Context } from "../../../redux/Context";
+import { commonContext } from "../../../redux/context";
 
 // props: sectionItem, backgroundColor
 const SectionItem = (props) => {
@@ -85,7 +83,7 @@ const SectionList = (props) => {
 };
 
 const Mobile = () => {
-  const { state } = useContext(Context);
+  const { state } = useContext({ commonContext });
 
   return (
     <Layout style={{ "overflow-x": "hidden" }}>

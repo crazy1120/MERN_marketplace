@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { motion } from "framer-motion";
+
 import {
   Typography,
   Layout,
@@ -8,15 +11,10 @@ import {
   Tooltip,
   Popover,
 } from "antd";
-
 import { DownloadOutlined } from "@ant-design/icons";
 
-import { motion } from "framer-motion";
-
-import { useContext } from "react";
-
-import { Context } from "../../../redux/Context";
 import { Header } from "../../layout/common";
+import { commonContext } from "../../../redux/context";
 
 // props: image
 const FloatImageCol = (props) => {
@@ -146,7 +144,7 @@ const SectionList = (props) => {
 };
 
 const Desktop = () => {
-  const { state } = useContext(Context);
+  const { state } = useContext(commonContext);
 
   return (
     <Layout style={{ minWidth: "1000px" }}>

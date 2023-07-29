@@ -1,14 +1,16 @@
-import React from "react";
+import { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { Button, Checkbox, Form, Input } from "antd";
 
 import CommonLayout from "../layout/common";
 import { signInStart } from "../../redux/slices/auth";
+import { formContext } from "../../redux/context";
 
 const SignInForm = () => {
   const dispatch = useDispatch();
+  const { state } = useContext(formContext);
 
-  const onFinish = (values) => {
+  const handleSubmit = (values) => {
     dispatch(signInStart(values));
   };
 
@@ -18,35 +20,25 @@ const SignInForm = () => {
 
   return (
     <Form
-      name="basic"
+      name="signInForm"
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}
       style={{ maxWidth: 600 }}
       initialValues={{ remember: true }}
-      onFinish={onFinish}
+      onFinish={handleSubmit}
       onFinishFailed={onFinishFailed}
       autoComplete="off">
       <Form.Item
         label="Email"
         name="email"
-        rules={[
-          {
-            required: true,
-            message: "Please input your email!",
-          },
-        ]}>
+        rules={state.emailRule}>
         <Input />
       </Form.Item>
 
       <Form.Item
         label="Password"
         name="password"
-        rules={[
-          {
-            required: true,
-            message: "Please input your password!",
-          },
-        ]}>
+        rules={state.passwordRule}>
         <Input.Password />
       </Form.Item>
 

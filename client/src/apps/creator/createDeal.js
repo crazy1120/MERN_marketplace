@@ -1,13 +1,13 @@
 import React from "react";
 import CommonLayout from "../layout/common";
-import ProductForm from "./productForm";
+import DealForm from "./dealForm";
 
-const AddProduct = () => {
+const CreateDeal = () => {
   return (
     <CommonLayout>
-      <ProductForm />
+      <DealForm />
     </CommonLayout>
   );
 };
 
-export default AddProduct;
+export default CreateDeal;
