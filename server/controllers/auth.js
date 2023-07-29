@@ -6,7 +6,7 @@ const { User } = require("../models"),
   errors = {};
 
 // User sign up controller
-const signUp = async (req, res) => {
+exports.signUp = async (req, res) => {
   const { name, email, birthday, sex, location, telephone, password, level } =
     req.body;
 
@@ -40,7 +40,7 @@ const signUp = async (req, res) => {
 };
 
 // User sign in controller
-const signIn = async (req, res) => {
+exports.signIn = async (req, res) => {
   const { email, password } = req.body;
 
   //Check email existence
@@ -68,5 +68,3 @@ const signIn = async (req, res) => {
     return res.status(400).json(errors);
   }
 };
-
-module.exports = { signUp, signIn };

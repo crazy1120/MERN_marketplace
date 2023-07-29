@@ -4,7 +4,7 @@ const app = require("express")(),
   morgan = require("morgan"),
   bodyParser = require("body-parser"),
   passport = require("passport"),
-  { keys, connectDB } = require("./config");
+  { keys, connectDB, jwtPassport } = require("./config");
 
 // MongoDB connection
 connectDB();
@@ -18,7 +18,7 @@ app
   .use(passport.initialize());
 
 // Passport Config
-require("./config/passport");
+jwtPassport(passport);
 
 // Main routing
 app.use("/api", require("./routers"));

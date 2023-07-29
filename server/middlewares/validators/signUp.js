@@ -20,7 +20,7 @@ module.exports = (data) => {
 
   // Name field validator
   if (!Validator.isLength(data.name, { min: 3 })) {
-    errors.name = "Name must containe at least 3 letters.";
+    errors.name = "Name must contain at least 3 letters.";
   }
 
   // Email field validator
