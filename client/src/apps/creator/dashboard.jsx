@@ -28,7 +28,7 @@ const Deals = () => {
   }, []);
 
   const state = useSelector(state => state.deal);
-  console.log(state);
+
   return (
     <CommonLayout>
       <div id="creatorDashboard" className="app-container">

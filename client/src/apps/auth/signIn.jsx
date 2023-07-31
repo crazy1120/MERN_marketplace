@@ -18,19 +18,11 @@ const SignInForm = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flex: 1,
-      }}
-    >
+    <div className="app-container">
       <Form
         name="signInForm"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
-        style={{ width: "50%" }}
         initialValues={{ remember: true }}
         onFinish={handleSubmit}
         onFinishFailed={onFinishFailed}

@@ -5,35 +5,36 @@ import { useSelector } from "react-redux";
 const SiderElements = () => {
   const auth = useSelector(state => state.auth);
 
-  switch (auth.user.level) {
-    case 1:
-      return (
-        <ul>
-          <li>
-            <Link to="/deals">
-              <button className="big-btn">Deals</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/creator/profile">
-              <button className="big-btn">Profile</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/creator/channels">
-              <button className="big-btn">Channels</button>
-            </Link>
-          </li>
-        </ul>
-      );
-    case 2:
-      return <></>;
-    case 3:
-      return <></>;
-    case 4:
-      return <></>;
-    default:
-      break;
+  if (auth.isAuthenticated) {
+    switch (auth.user.level) {
+      case 1:
+        return (
+          <ul>
+            <li>
+              <Link to="/deals">
+                <button className="big-btn">Deals</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/creator/profile">
+                <button className="big-btn">Profile</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/creator/channels">
+                <button className="big-btn">Channels</button>
+              </Link>
+            </li>
+          </ul>
+        );
+      case 2:
+        return <></>;
+      case 3:
+        return <></>;
+      default:
+        break;
+    }
+  } else {
   }
 };
 

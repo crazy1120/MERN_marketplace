@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Products } from "../broker";
+import { Creators } from "../broker";
 
 const BrokerRoute = ({ children }) => {
   const navigate = useNavigate();
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector(state => state.auth);
 
   useEffect(() => {
     if (!auth.isAuthenticated) navigate("/signIn");
@@ -18,10 +18,10 @@ const BrokerRoute = ({ children }) => {
 
 const BrokerRoutes = [
   {
-    path: "/myTasks",
+    path: "/creators",
     element: (
       <BrokerRoute>
-        <Products />
+        <Creators />
       </BrokerRoute>
     ),
   },

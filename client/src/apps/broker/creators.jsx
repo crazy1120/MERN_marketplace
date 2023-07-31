@@ -1,7 +1,7 @@
 import React from "react";
 
-const Products = () => {
+const Creators = () => {
   return <div>Broker's Caret</div>;
 };
 
-export default Products;
+export default Creators;

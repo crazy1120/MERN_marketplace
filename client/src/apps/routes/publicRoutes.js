@@ -15,7 +15,7 @@ const PublicRoute = ({ children }) => {
           navigate("/deals");
           break;
         case 2:
-          navigate("/myTasks");
+          navigate("/creators");
           break;
         case 3:
           navigate("/myCarets");
