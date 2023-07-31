@@ -1,31 +1,29 @@
-// Third-party modules
-import { put, takeEvery } from "redux-saga/effects";
+import { put, takeLatest } from "redux-saga/effects";
 
-// Tools
 import { api } from "../utils";
-import { actions } from "../slices/deal";
+import { actions } from "../slices/profile";
 
-// Retrieve deals saga
-function* getDeals() {
+// Retrieve own profile of creator saga
+function* getProfile() {
   try {
-    const res = yield api.get("/creator/deal");
-    yield put(actions.getDealsSuccess(res.data));
+    const res = yield api.get("/creator/profile");
+    yield put(actions.getProfileSuccess(res.data));
   } catch (err) {
-    yield put(actions.getDealsFailure(err.response.data));
+    yield put(actions.getProfileFailure(err.response.data));
   }
 }
 
-// Create a deal saga
-function* createDeal({ payload: { title, desc, price } }) {
+// Create a profile of creator saga
+function* createProfile({ payload: { intro } }) {
   try {
-    const res = yield api.post("/creator/deal", { title, desc, price });
-    yield put(actions.createDealSuccess(res));
+    const res = yield api.post("/creator/profile", { intro });
+    yield put(actions.createProfileSuccess(res));
   } catch (err) {
-    yield put(actions.createDealFailure(err.response.data));
+    yield put(actions.createProfileFailure(err.response.data));
   }
 }
 
-export default function* dealSagas() {
-  yield takeEvery("deal/getDealsStart", getDeals);
-  yield takeEvery("deal/createDealStart", createDeal);
+export default function* profileSagas() {
+  yield takeLatest("profile/getProfileStart", getProfile);
+  yield takeLatest("profile/createProfileStart", createProfile);
 }

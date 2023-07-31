@@ -5,7 +5,6 @@ import CommonLayout from "../layout";
 import DealForm from "./dealForm";
 import { actions } from "../../redux/slices/deal";
 
-// Main Component
 const CreateDeal = () => {
   const dispatch = useDispatch();
 

@@ -68,6 +68,7 @@ exports.signIn = async (req, res) => {
       name: user.name,
       email: user.email,
       level: user.level,
+      birthday: user.birthday,
     };
 
     jwt.sign(payload, keys.secretOrKey, { expiresIn: "24h" }, (err, token) =>
@@ -77,4 +78,15 @@ exports.signIn = async (req, res) => {
     errors.password = "Incorrect password entered.";
     return res.status(400).json(errors);
   }
+};
+
+/**
+ * Get authenticated user's info
+ * @param {*} req - Request from frontend containing user
+ * @param {*} res - Response from server containing user info
+ * @returns {object} - Response object
+ */
+exports.getUser = async (req, res) => {
+  const { name, email, birthday } = req.user;
+  return res.json({ name, email, birthday });
 };

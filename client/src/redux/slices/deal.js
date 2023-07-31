@@ -8,37 +8,37 @@ const initialState = {
     price: "",
   },
   loading: false,
-  errors: null,
+  error: null,
 };
 
 const dealSlice = createSlice({
   name: "deal",
   initialState,
   reducers: {
-    createDealStart: (state) => {
+    createDealStart: state => {
       state.loading = true;
-      state.errors = null;
+      state.error = null;
     },
-    createDealSuccess: (state) => {
+    createDealSuccess: state => {
       state.loading = false;
       window.history.back();
     },
     createDealFailure: (state, { payload }) => {
       state.loading = false;
-      state.errors = payload;
+      state.error = payload;
     },
-    getDealsStart: (state) => {
+    getDealsStart: state => {
       state.loading = true;
-      state.errors = null;
+      state.error = null;
     },
     getDealsSuccess: (state, { payload }) => {
       state.loading = false;
-      state.errors = null;
+      state.error = null;
       state.deals = payload;
     },
     getDealsFailure: (state, { payload }) => {
       state.loading = false;
-      state.errors = payload;
+      state.error = payload;
     },
   },
 });

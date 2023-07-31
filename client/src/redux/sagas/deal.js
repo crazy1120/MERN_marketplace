@@ -1,5 +1,5 @@
 // Third-party modules
-import { put, takeEvery } from "redux-saga/effects";
+import { put, takeLatest } from "redux-saga/effects";
 
 // Tools
 import { api } from "../utils";
@@ -26,6 +26,6 @@ function* createDeal({ payload: { title, desc, price } }) {
 }
 
 export default function* dealSagas() {
-  yield takeEvery("deal/getDealsStart", getDeals);
-  yield takeEvery("deal/createDealStart", createDeal);
+  yield takeLatest("deal/getDealsStart", getDeals);
+  yield takeLatest("deal/createDealStart", createDeal);
 }

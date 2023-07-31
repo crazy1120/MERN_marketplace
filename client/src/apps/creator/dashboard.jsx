@@ -22,18 +22,17 @@ const Deal = ({ feature }) => {
 // Main Component
 const Deals = () => {
   const dispatch = useDispatch();
+  const { deals } = useSelector(state => state.deal);
 
   useEffect(() => {
     dispatch(actions.getDealsStart());
   }, []);
 
-  const state = useSelector(state => state.deal);
-
   return (
     <CommonLayout>
       <div id="creatorDashboard" className="app-container">
         <div className="deals">
-          {state.deals.map(deal => (
+          {deals.map(deal => (
             <Deal key={deal._id} feature={deal} />
           ))}
         </div>

@@ -1,6 +1,6 @@
 const router = require("express").Router(),
   { auth } = require("../controllers"),
-  { validators } = require("../middlewares");
+  { validators, verifiers } = require("../middlewares");
 
 /**
  * @route api/signUp
@@ -11,9 +11,12 @@ router.post("/signUp", validators.signUp, auth.signUp);
 
 /**
  * @route api/signIn
- * @method POST
+ * @method GET, POST
  * @access Public
  */
-router.post("/signIn", validators.signIn, auth.signIn);
+router
+  .route("/signIn")
+  .get(verifiers.auth, auth.getUser)
+  .post(validators.signIn, auth.signIn);
 
 module.exports = router;

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   profile: {},
   loading: false,
-  errors: null,
+  error: null,
 };
 
 const profileSlice = createSlice({
@@ -12,28 +12,28 @@ const profileSlice = createSlice({
   reducers: {
     createProfileStart: state => {
       state.loading = true;
-      state.errors = null;
+      state.error = null;
     },
     createProfileSuccess: state => {
       state.loading = false;
-      // window.history.back();
+      window.history.back();
     },
     createProfileFailure: (state, { payload }) => {
       state.loading = false;
-      state.errors = payload;
+      state.error = payload;
     },
     getProfileStart: state => {
       state.loading = true;
-      state.errors = null;
+      state.error = null;
     },
     getProfileSuccess: (state, { payload }) => {
       state.loading = false;
-      state.errors = null;
-      state.Profile = payload;
+      state.error = null;
+      state.profile = payload;
     },
     getProfileFailure: (state, { payload }) => {
       state.loading = false;
-      state.errors = payload;
+      state.error = payload;
     },
   },
 });

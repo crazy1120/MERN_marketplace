@@ -1,7 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Dashboard, CreateDeal, Profile, Channels } from "../creator";
+import {
+  Dashboard,
+  CreateDeal,
+  Profile,
+  CreateProfile,
+  Channels,
+} from "../creator";
 import { useEffect } from "react";
 
 const CreatorRoute = ({ children }) => {
@@ -38,6 +44,14 @@ const CreatorRoutes = [
     element: (
       <CreatorRoute>
         <Profile />
+      </CreatorRoute>
+    ),
+  },
+  {
+    path: "/creator/profile/create",
+    element: (
+      <CreatorRoute>
+        <CreateProfile />
       </CreatorRoute>
     ),
   },

@@ -9,29 +9,29 @@ const initialState = {
   isAuthenticated: !!token,
   loading: false,
   user,
-  errors: null,
+  error: null,
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    signInStart: (state) => {
+    signInStart: state => {
       state.loading = true;
-      state.errors = null;
+      state.error = null;
     },
     signInSuccess: (state, { payload }) => {
       setAuthToken(payload);
       state.isAuthenticated = true;
       state.loading = false;
       state.user = jwtDecode(payload);
-      state.errors = null;
+      state.error = null;
     },
     signInFailure: (state, { payload }) => {
       state.loading = false;
-      state.errors = payload;
+      state.error = payload;
     },
-    signOut: (state) => {
+    signOut: state => {
       localStorage.removeItem("token");
       setAuthToken(null);
       state.isAuthenticated = false;

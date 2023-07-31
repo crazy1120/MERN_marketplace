@@ -2,10 +2,22 @@ import { createContext } from "react";
 
 const formRules = {
   // Rules applied for auth forms
+  nameRule: [
+    {
+      required: true,
+      message: "Please input your name!",
+    },
+  ],
   emailRule: [
     {
       required: true,
       message: "Please input your email!",
+    },
+  ],
+  birthdayRule: [
+    {
+      required: true,
+      message: "Please input your birthday!",
     },
   ],
   passwordRule: [
@@ -29,6 +41,14 @@ const formRules = {
     {
       required: true,
       message: "Please input the desired price of your deal!",
+    },
+  ],
+
+  // Rules applied for profile forms
+  profileIntroRule: [
+    {
+      required: true,
+      message: "Please input some description about yourself.",
     },
   ],
 };

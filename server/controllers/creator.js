@@ -8,7 +8,10 @@ const { User, Deal, Profile } = require("../models");
  */
 exports.getDeals = async (req, res) => {
   const deals = await Deal.find({ creator: req.user });
-  if (deals) return res.json(deals);
+  if (deals.length) return res.json(deals);
+
+  const error = "Please create your first deal.";
+  return res.status(404).json(error);
 };
 
 /**
@@ -40,12 +43,11 @@ exports.createDeal = async (req, res) => {
  */
 exports.getProfile = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
-  if (!profile) {
-    const error = "You have not yet published your profile.";
-    return res.status(400).json({ error });
+  if (profile) {
+    return res.json(profile);
   }
-
-  return res.json(profile);
+  const error = "Please edit and publish your profile.";
+  return res.status(404).json(error);
 };
 
 /**

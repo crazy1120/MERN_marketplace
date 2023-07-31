@@ -41,3 +41,32 @@
   margin: 0 auto;
   width: 400px;
 }
+
+/* Profile Styles */
+
+.create-profile-box {
+  width: 400px;
+  text-align: center;
+  background: orange;
+  padding-bottom: 3%;
+  border-radius: 12px;
+  border: 3px solid orange;
+  margin: 40px auto;
+}
+
+.create-profile-box h6 {
+  font-size: 24px;
+  color: #fff;
+  margin: 2% 0;
+}
+
+.create-profile-box > p:first-of-type {
+  font-size: 22px;
+}
+
+.create-profile-box p {
+  margin: 0;
+  padding-bottom: 5%;
+  font-size: 20px;
+  color: white;
+}
