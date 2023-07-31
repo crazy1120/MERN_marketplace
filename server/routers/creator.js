@@ -12,4 +12,11 @@ router
   .get(creator.getDeals)
   .post(validators.dealFormat, creator.createDeal);
 
+/**
+ * @route api/creator/profile
+ * @methods GET, POST
+ * @access Private
+ */
+router.route("/profile").get(creator.getProfile).post(creator.createProfile);
+
 module.exports = router;

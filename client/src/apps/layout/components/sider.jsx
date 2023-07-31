@@ -28,7 +28,25 @@ const SiderElements = () => {
           </ul>
         );
       case 2:
-        return <></>;
+        return (
+          <ul>
+            <li>
+              <Link to="/creators">
+                <button className="big-btn">Creators</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/creator/profile">
+                <button className="big-btn">Profile</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/creator/channels">
+                <button className="big-btn">Channels</button>
+              </Link>
+            </li>
+          </ul>
+        );
       case 3:
         return <></>;
       default:

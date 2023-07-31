@@ -1,4 +1,5 @@
 import React from "react";
+
 import CommonLayout from "../layout";
 
 const Channels = () => {
