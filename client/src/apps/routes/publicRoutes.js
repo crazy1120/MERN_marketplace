@@ -6,7 +6,7 @@ import { SignIn } from "../auth";
 
 const PublicRoute = ({ children }) => {
   const navigate = useNavigate();
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector(state => state.auth);
 
   useEffect(() => {
     if (auth.isAuthenticated) {

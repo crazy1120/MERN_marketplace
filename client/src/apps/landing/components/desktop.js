@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { motion } from "framer-motion";
-
 import {
   Typography,
   Layout,
@@ -13,11 +12,11 @@ import {
 } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 
-import { Header } from "../../layout/common";
+import { Header } from "../../layout";
 import { commonContext } from "../../../redux/context";
 
 // props: image
-const FloatImageCol = (props) => {
+const FloatImageCol = props => {
   return (
     <Col span={12}>
       <Row justify="center">
@@ -28,7 +27,8 @@ const FloatImageCol = (props) => {
             opacity: 1,
             transition: { type: "spring", bounce: 0, duration: 1 },
           }}
-          viewport={{ once: true }}>
+          viewport={{ once: true }}
+        >
           <Image
             height={400}
             preview={false}
@@ -36,7 +36,8 @@ const FloatImageCol = (props) => {
             style={{
               boxShadow:
                 "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-            }}></Image>
+            }}
+          ></Image>
         </motion.div>
       </Row>
     </Col>
@@ -44,7 +45,7 @@ const FloatImageCol = (props) => {
 };
 
 // props title, text
-const FloatTextCol = (props) => {
+const FloatTextCol = props => {
   return (
     <Col span={12}>
       <motion.div
@@ -54,15 +55,12 @@ const FloatTextCol = (props) => {
           opacity: 1,
           transition: { type: "spring", bounce: 0, duration: 1 },
         }}
-        viewport={{ once: true }}>
-        <Row
-          justify="center"
-          style={{ padding: "0px 50px" }}>
+        viewport={{ once: true }}
+      >
+        <Row justify="center" style={{ padding: "0px 50px" }}>
           <Typography.Title>{props.title}</Typography.Title>
         </Row>
-        <Row
-          justify="center"
-          style={{ padding: "0px 50px" }}>
+        <Row justify="center" style={{ padding: "0px 50px" }}>
           <Typography style={{ fontSize: "16px" }}>{props.text}</Typography>
         </Row>
       </motion.div>
@@ -71,7 +69,7 @@ const FloatTextCol = (props) => {
 };
 
 // props: sectionItem, backgroundColor
-const SectionItemImageOnTheLeft = (props) => {
+const SectionItemImageOnTheLeft = props => {
   return (
     <Row
       justify="center"
@@ -80,11 +78,9 @@ const SectionItemImageOnTheLeft = (props) => {
         backgroundColor: props.backgroundColor,
         height: "700px",
         padding: "100px",
-      }}>
-      <Row
-        justify="center"
-        align="middle"
-        style={{ maxWidth: "2000px" }}>
+      }}
+    >
+      <Row justify="center" align="middle" style={{ maxWidth: "2000px" }}>
         <FloatImageCol image={props.sectionItem.image} />
         <FloatTextCol
           title={props.sectionItem.title}
@@ -96,7 +92,7 @@ const SectionItemImageOnTheLeft = (props) => {
 };
 
 // props: sectionItem, backgroundColor
-const SectionItemImageOnTheRight = (props) => {
+const SectionItemImageOnTheRight = props => {
   return (
     <Row
       justify="center"
@@ -105,11 +101,9 @@ const SectionItemImageOnTheRight = (props) => {
         backgroundColor: props.backgroundColor,
         height: "700px",
         padding: "100px",
-      }}>
-      <Row
-        justify="center"
-        align="middle"
-        style={{ maxWidth: "2000px" }}>
+      }}
+    >
+      <Row justify="center" align="middle" style={{ maxWidth: "2000px" }}>
         <FloatTextCol
           title={props.sectionItem.title}
           text={props.sectionItem.text}
@@ -121,7 +115,7 @@ const SectionItemImageOnTheRight = (props) => {
 };
 
 // props: sectionList
-const SectionList = (props) => {
+const SectionList = props => {
   return (
     <>
       {props.sectionList.map((sectionItem, index) => {
@@ -155,39 +149,27 @@ const Desktop = () => {
         <Row
           justify="center"
           align="middle"
-          style={{ backgroundColor: "white", height: "1000px" }}>
-          <Row
-            justify="center"
-            align="middle"
-            style={{ maxWidth: "2000px" }}>
+          style={{ backgroundColor: "white", height: "1000px" }}
+        >
+          <Row justify="center" align="middle" style={{ maxWidth: "2000px" }}>
             <Col style={{ width: "40%" }}>
-              <Row
-                justify="center"
-                style={{ padding: "0px 50px" }}>
+              <Row justify="center" style={{ padding: "0px 50px" }}>
                 <Typography.Title>{state.coverTitle}</Typography.Title>
               </Row>
 
-              <Row
-                justify="center"
-                style={{ padding: "0px 50px" }}>
+              <Row justify="center" style={{ padding: "0px 50px" }}>
                 <Typography style={{ fontSize: "16px" }}>
                   {state.coverText}
                 </Typography>
               </Row>
 
-              <Row
-                justify="center"
-                style={{ marginTop: "50px" }}>
-                <Col
-                  key="signinlink"
-                  style={{ width: "200px" }}>
+              <Row justify="center" style={{ marginTop: "50px" }}>
+                <Col key="signinlink" style={{ width: "200px" }}>
                   <Row justify="center">
                     <Typography.Link href="./signIn">SIGNIN</Typography.Link>
                   </Row>
                 </Col>
-                <Col
-                  key="signuplink"
-                  style={{ width: "150px" }}>
+                <Col key="signuplink" style={{ width: "150px" }}>
                   <Row justify="center">
                     <Typography.Link href="./signUp">SIGNUP</Typography.Link>
                   </Row>
@@ -201,7 +183,8 @@ const Desktop = () => {
                   width={800}
                   height={700}
                   preview={false}
-                  src={state.coverImage}></Image>
+                  src={state.coverImage}
+                ></Image>
               </Row>
             </Col>
           </Row>
@@ -211,11 +194,9 @@ const Desktop = () => {
         <Row
           justify="center"
           align="middle"
-          style={{ height: "700px", padding: "100px" }}>
-          <Row
-            justify="center"
-            align="middle"
-            style={{ maxWidth: "2000px" }}>
+          style={{ height: "700px", padding: "100px" }}
+        >
+          <Row justify="center" align="middle" style={{ maxWidth: "2000px" }}>
             <motion.div
               initial={{ y: 300, opacity: 0 }}
               whileInView={{
@@ -223,7 +204,8 @@ const Desktop = () => {
                 opacity: 1,
                 transition: { type: "spring", bounce: 0, duration: 1 },
               }}
-              viewport={{ once: true }}>
+              viewport={{ once: true }}
+            >
               <Row justify="center">
                 <Typography.Title>{state.endorsementTitle}</Typography.Title>
               </Row>
@@ -233,20 +215,20 @@ const Desktop = () => {
                 </Typography>
               </Row>
 
-              <Row
-                justify="center"
-                style={{ marginTop: "50px" }}>
+              <Row justify="center" style={{ marginTop: "50px" }}>
                 {state.endorsementList.map((endorsementItem, index) => {
                   return (
                     <Col span={3}>
                       <Tooltip
                         placement="top"
                         title={endorsementItem.title}
-                        color={endorsementItem.titleColor}>
+                        color={endorsementItem.titleColor}
+                      >
                         <a
                           href={endorsementItem.URL}
                           target="_blank"
-                          rel="noopener noreferrer">
+                          rel="noopener noreferrer"
+                        >
                           <Image
                             height={70}
                             preview={false}
@@ -254,7 +236,8 @@ const Desktop = () => {
                             style={{
                               boxShadow:
                                 "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                            }}></Image>
+                            }}
+                          ></Image>
                         </a>
                       </Tooltip>
                     </Col>
@@ -276,11 +259,13 @@ const Desktop = () => {
             backgroundColor: "white",
             height: "500px",
             padding: "100px",
-          }}>
+          }}
+        >
           <Row
             justify="left"
             align="top"
-            style={{ maxWidth: "2000px", width: "100%" }}>
+            style={{ maxWidth: "2000px", width: "100%" }}
+          >
             <Col style={{ padding: "0px 20px" }}>
               <Row
                 justify="start"
@@ -288,18 +273,21 @@ const Desktop = () => {
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                   window.scrollTo(0, 0);
-                }}>
+                }}
+              >
                 <Col>
                   <Image
                     height={30}
                     preview={false}
                     src={state.appLogo}
-                    style={{ filter: "grayscale(1)", opacity: "0.7" }}></Image>
+                    style={{ filter: "grayscale(1)", opacity: "0.7" }}
+                  ></Image>
                 </Col>
                 <Col>
                   <Typography.Title
                     level={3}
-                    style={{ color: "gray", marginLeft: "10px" }}>
+                    style={{ color: "gray", marginLeft: "10px" }}
+                  >
                     {state.appName}
                   </Typography.Title>
                 </Col>
@@ -307,7 +295,8 @@ const Desktop = () => {
               <Row
                 justify="start"
                 align="middle"
-                style={{ marginTop: "125px" }}>
+                style={{ marginTop: "125px" }}
+              >
                 <Col>
                   <Button
                     type="primary"
@@ -317,7 +306,8 @@ const Desktop = () => {
                     danger
                     onClick={() => {
                       window.scrollTo(0, 0);
-                    }}>
+                    }}
+                  >
                     Download
                   </Button>
                 </Col>
@@ -325,39 +315,33 @@ const Desktop = () => {
             </Col>
 
             <Col style={{ padding: "0px 20px" }}>
-              <Row
-                justify="start"
-                align="middle"
-                style={{ margin: "20px 0" }}>
+              <Row justify="start" align="middle" style={{ margin: "20px 0" }}>
                 <Typography>Who we are</Typography>
               </Row>
-              <Row
-                justify="start"
-                align="middle">
+              <Row justify="start" align="middle">
                 <a
                   href={state.appURL + "/policy/cookies"}
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   <Typography.Title level={5}>Cookies Policy</Typography.Title>
                 </a>
               </Row>
-              <Row
-                justify="start"
-                align="middle">
+              <Row justify="start" align="middle">
                 <a
                   href={state.appURL + "/policy/privacy"}
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   <Typography.Title level={5}>Privacy Policy</Typography.Title>
                 </a>
               </Row>
-              <Row
-                justify="start"
-                align="middle">
+              <Row justify="start" align="middle">
                 <a
                   href={state.appURL + "/policy/terms"}
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   <Typography.Title level={5}>
                     Terms of Service
                   </Typography.Title>
@@ -366,16 +350,10 @@ const Desktop = () => {
             </Col>
 
             <Col style={{ padding: "0px 20px" }}>
-              <Row
-                justify="start"
-                align="middle"
-                style={{ margin: "20px 0" }}>
+              <Row justify="start" align="middle" style={{ margin: "20px 0" }}>
                 <Typography>Need help?</Typography>
               </Row>
-              <Row
-                justify="start"
-                align="middle"
-                style={{ cursor: "pointer" }}>
+              <Row justify="start" align="middle" style={{ cursor: "pointer" }}>
                 <Popover
                   placement="top"
                   title="Contact Us"
@@ -383,15 +361,15 @@ const Desktop = () => {
                     <a
                       href={state.discordLink}
                       target="_blank"
-                      rel="noopener noreferrer">
-                      <Row
-                        justify="start"
-                        align="middle">
+                      rel="noopener noreferrer"
+                    >
+                      <Row justify="start" align="middle">
                         <Col>
                           <Image
                             height={40}
                             preview={false}
-                            src={state.discordImage}></Image>
+                            src={state.discordImage}
+                          ></Image>
                         </Col>
                         <Col style={{ marginLeft: "5px" }}>
                           <Typography>Join our Discord</Typography>
@@ -399,7 +377,8 @@ const Desktop = () => {
                       </Row>
                     </a>
                   }
-                  trigger="click">
+                  trigger="click"
+                >
                   <Typography.Title level={5}>Contact Us</Typography.Title>
                 </Popover>
               </Row>
@@ -410,11 +389,10 @@ const Desktop = () => {
         <Row
           justify="center"
           align="middle"
-          style={{ backgroundColor: "white", padding: "0 0 40px 0" }}>
+          style={{ backgroundColor: "white", padding: "0 0 40px 0" }}
+        >
           <Col>
-            <Typography.Text
-              type="secondary"
-              style={{ fontSize: 12 }}>
+            <Typography.Text type="secondary" style={{ fontSize: 12 }}>
               {state.appName} © {new Date().getFullYear()}
             </Typography.Text>
           </Col>

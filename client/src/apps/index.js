@@ -4,11 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { setAuthToken } from "../redux/utils";
 import { actions } from "../redux/slices/auth";
-
-// Pages
 import Landing from "./landing";
-
-// Routes
 import * as Routes from "./routes";
 
 const router = createBrowserRouter([

@@ -1,0 +1,43 @@
+#createLink {
+  display: flex;
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+  justify-content: flex-end;
+  padding: 20px 0;
+}
+
+#creatorDashboard .deals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#creatorDashboard .deal {
+  background-color: #ddd;
+  min-width: 300px;
+  max-width: 500px;
+  flex-basis: 20%;
+  flex-grow: 1;
+  word-break: break-all;
+  padding: 15px;
+  border: 2px solid #555;
+  border-radius: 25px;
+  margin: 20px;
+}
+
+#creatorDashboard .deal h4 {
+  text-align: center;
+  margin: 0;
+}
+
+#creatorDashboard .deal > div:first-of-type {
+  background-color: #efefef;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+#handleDealForm {
+  margin: 0 auto;
+  width: 400px;
+}
