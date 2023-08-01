@@ -20,10 +20,8 @@ const Apps = () => {
 
   useEffect(() => {
     const token = localStorage.token;
-    if (token) {
-      setAuthToken(token);
-      dispatch(actions.signInSuccess(token));
-    }
+    if (token) setAuthToken(token);
+
     window.addEventListener("storage", () => {
       if (!localStorage.token) dispatch(actions.signOut());
     });

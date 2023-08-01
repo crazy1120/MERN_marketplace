@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+/* Landing Page */
+#titleBoard {
+  width: 40%;
+  text-align: center;
+}
+
+#titleBoard article.ant-typography {
+  font-size: 20px;
+}

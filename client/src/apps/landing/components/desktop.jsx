@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Typography,
   Layout,
@@ -145,35 +146,24 @@ const Desktop = () => {
       <Header />
 
       <Layout.Content>
-        {/* cover headline */}
-        <Row
-          justify="center"
-          align="middle"
-          style={{ backgroundColor: "white", height: "1000px" }}
-        >
+        <Row id="mainLanding" className="center-middle">
           <Row justify="center" align="middle" style={{ maxWidth: "2000px" }}>
-            <Col style={{ width: "40%" }}>
+            <Col id="titleBoard">
               <Row justify="center" style={{ padding: "0px 50px" }}>
                 <Typography.Title>{state.coverTitle}</Typography.Title>
               </Row>
 
               <Row justify="center" style={{ padding: "0px 50px" }}>
-                <Typography style={{ fontSize: "16px" }}>
-                  {state.coverText}
-                </Typography>
+                <Typography>{state.coverText}</Typography>
               </Row>
 
               <Row justify="center" style={{ marginTop: "50px" }}>
-                <Col key="signinlink" style={{ width: "200px" }}>
-                  <Row justify="center">
-                    <Typography.Link href="./signIn">SIGNIN</Typography.Link>
-                  </Row>
-                </Col>
-                <Col key="signuplink" style={{ width: "150px" }}>
-                  <Row justify="center">
-                    <Typography.Link href="./signUp">SIGNUP</Typography.Link>
-                  </Row>
-                </Col>
+                <Link className="big-black-btn" to="./signIn">
+                  SIGNIN
+                </Link>
+                <Link className="big-black-btn" to="./signUp">
+                  SIGNUP
+                </Link>
               </Row>
             </Col>
 

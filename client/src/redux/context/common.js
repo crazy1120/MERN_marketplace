@@ -33,9 +33,9 @@ const initialState = {
   appLogo: appLogo,
   appName: "Developing",
 
-  coverTitle: "Lorem ipsum dol",
+  coverTitle: "Welcome to our Paradise of sponsorships",
   coverText:
-    "Chat with other attendees and make new friends at your favorite events and concerts.",
+    "Here you can meet creators or just create your own business and meet our brands.",
   appleStoreBadge: appleStoreBadge,
   appleStoreLink: "https://apps.apple.com/us/app/amplichat/id1499570373",
   googlePlayBadge: googlePlayBadge,

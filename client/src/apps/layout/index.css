@@ -17,9 +17,51 @@
   justify-content: space-between;
 }
 
+.big-btn {
+  font-size: 18px;
+  color: #fff;
+  width: 150px;
+  background: #1677ff;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.big-black-btn {
+  font-size: 20px;
+  color: #fff;
+  width: 150px;
+  background: rgba(31, 41, 55, 0.9);
+  padding: 5px 0 8px;
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  border-radius: 10px;
+  margin: 0 5%;
+}
+
+.black-btn {
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  width: 150px;
+  background: rgba(31, 41, 55, 0.9);
+  padding: 7px 0 8px;
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  border-radius: 10px;
+  margin: 0 2%;
+  cursor: pointer;
+}
+
+.center-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Common Header */
 header {
   background: #fff;
+  padding: 20px 0;
   border-bottom: 3px solid #ddd;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
@@ -52,13 +94,6 @@ header .navbar {
   align-items: center;
 }
 
-header .navbar button {
-  color: #fff;
-  font-size: 18px;
-  background-color: #1e90ff;
-  border: none;
-}
-
 /* Common Sider */
 #appMain {
   display: flex;
@@ -83,13 +118,8 @@ header .navbar button {
   margin-bottom: 10px;
 }
 
-.big-btn {
-  font-size: 18px;
-  color: white;
-  width: 150px;
-  background: #1677ff;
-  cursor: pointer;
-  border: none;
-  padding: 10px;
-  border-radius: 20px;
+/* Common Main */
+#mainLanding {
+  background-color: #fff;
+  height: 900px;
 }
