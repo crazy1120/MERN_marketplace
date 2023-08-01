@@ -40,12 +40,12 @@
 }
 
 .black-btn {
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   color: #fff;
   width: 150px;
   background: rgba(31, 41, 55, 0.9);
-  padding: 7px 0 8px;
+  padding: 7px 4px 8px;
   border: 1px solid rgba(31, 41, 55, 0.9);
   border-radius: 10px;
   margin: 0 2%;

@@ -21,13 +21,13 @@ const Linkbar = () => {
     </a>
   );
   const creatorLink = (
-    <Link className="black-btn" to="deal">
-      Creators
+    <Link className="black-btn" to="/deals">
+      For Creators
     </Link>
   );
   const brandLink = (
-    <Link className="black-btn" to="brand">
-      Brands
+    <Link className="black-btn" to="/brand">
+      For Brands
     </Link>
   );
   const commonLink = (

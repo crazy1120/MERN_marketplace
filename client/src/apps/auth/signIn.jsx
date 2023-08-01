@@ -49,6 +49,13 @@ const SignInForm = () => {
           </button>
         </Form.Item>
 
+        <div id="toSignUp">
+          Don't have account?
+          <a href="/signUp" className="black-btn">
+            Sign Up
+          </a>
+        </div>
+
         <p>Or Sign in with</p>
         <span>
           <a href="https://accounts.google.com">

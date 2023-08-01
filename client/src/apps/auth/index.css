@@ -44,3 +44,16 @@
   width: 20px;
   margin: 0 10%;
 }
+
+#toSignUp {
+  font-size: 16px;
+  text-align: end;
+}
+
+#toSignUp a {
+  font-size: 16px;
+  padding: 5px 15px 7px;
+  border-radius: 8px;
+  margin-right: 0;
+  margin-left: 10%;
+}
