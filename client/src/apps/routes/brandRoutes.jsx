@@ -16,15 +16,6 @@ const BrandRoute = ({ children }) => {
   return <>{children}</>;
 };
 
-const BrandRoutes = [
-  {
-    path: "/creators",
-    element: (
-      <BrandRoute>
-        <Creators />
-      </BrandRoute>
-    ),
-  },
-];
+const BrandRoutes = [];
 
 export default BrandRoutes;

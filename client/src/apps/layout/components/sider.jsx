@@ -36,13 +36,8 @@ const SiderElements = () => {
               </Link>
             </li>
             <li>
-              <Link to="/creator/profile">
+              <Link to="/brand/profile">
                 <button className="big-btn">Profile</button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/creator/channels">
-                <button className="big-btn">Channels</button>
               </Link>
             </li>
           </ul>

@@ -23,7 +23,18 @@ function* createProfile({ payload: { intro } }) {
   }
 }
 
+// Get all profiles of creators saga
+function* getCreators() {
+  try {
+    const res = yield api.get("/public/creators");
+    yield put(actions.getCreatorsSuccess(res.data));
+  } catch (err) {
+    yield put(actions.getCreatorsFailure(err.response.data));
+  }
+}
+
 export default function* profileSagas() {
   yield takeLatest("profile/getProfileStart", getProfile);
   yield takeLatest("profile/createProfileStart", createProfile);
+  yield takeLatest("profile/getCreatorsStart", getCreators);
 }

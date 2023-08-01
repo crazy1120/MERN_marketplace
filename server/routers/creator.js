@@ -1,6 +1,6 @@
 const router = require("express").Router(),
   { creator } = require("../controllers"),
-  { validators } = require("../middlewares");
+  { validators, verifiers } = require("../middlewares");
 
 /**
  * @route api/creator/deal

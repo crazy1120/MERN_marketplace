@@ -23,12 +23,8 @@ import purple_light from "../../images/purple_light.jpg";
 import concert_classic from "../../images/concert_classic.jpg";
 
 import discordImage from "../../images/discord.png";
-import linkedinImage from "../../images/linkedin.png";
-import googleImage from "../../images/google.png";
 
 const initialState = {
-  linkedinImage,
-  googleImage,
   // when in dev, change appURL to local url
   appURL: "http://localhost:3000",
   // when in production, change appURL to real url

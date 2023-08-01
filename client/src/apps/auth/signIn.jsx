@@ -3,14 +3,14 @@ import { useDispatch } from "react-redux";
 import { Checkbox, Divider, Form, Input } from "antd";
 
 import { actions } from "../../redux/slices/auth";
-import { formContext, commonContext } from "../../redux/context";
+import { formContext, imageContext } from "../../redux/context";
 import { Header } from "../layout";
 
 // Main Component
 const SignInForm = () => {
   const dispatch = useDispatch(),
     form = useContext(formContext).state,
-    common = useContext(commonContext).state;
+    image = useContext(imageContext).state;
 
   const handleSubmit = values => dispatch(actions.signInStart(values));
 
@@ -59,10 +59,10 @@ const SignInForm = () => {
         <p>Or Sign in with</p>
         <span>
           <a href="https://accounts.google.com">
-            <img src={common.googleImage} alt="Google" />
+            <img src={image.googleImage} alt="Google" />
           </a>
           <a href="https://linkedin.com">
-            <img src={common.linkedinImage} alt="Linkedin" />
+            <img src={image.linkedinImage} alt="Linkedin" />
           </a>
         </span>
       </Form>

@@ -16,7 +16,6 @@
 #creatorDashboard .deal {
   background-color: #ddd;
   min-width: 300px;
-  max-width: 500px;
   flex-basis: 20%;
   flex-grow: 1;
   word-break: break-all;

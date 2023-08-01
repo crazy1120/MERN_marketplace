@@ -1,3 +1,4 @@
-import Creators from "./creators";
+import Gallery from "./gallery";
+import "./index.css";
 
-export { Creators };
+export { Gallery };

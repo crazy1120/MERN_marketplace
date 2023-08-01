@@ -1,0 +1,1 @@
+const { Profile } = require("../models");

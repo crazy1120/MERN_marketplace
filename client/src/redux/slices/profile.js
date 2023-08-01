@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  creators: [],
   profile: {},
   loading: false,
   error: null,
@@ -32,6 +33,19 @@ const profileSlice = createSlice({
       state.profile = payload;
     },
     getProfileFailure: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
+    getCreatorsStart: state => {
+      state.loading = true;
+      state.error = null;
+    },
+    getCreatorsSuccess: (state, { payload }) => {
+      state.loading = false;
+      state.error = null;
+      state.creators = payload;
+    },
+    getCreatorsFailure: (state, { payload }) => {
       state.loading = false;
       state.error = payload;
     },

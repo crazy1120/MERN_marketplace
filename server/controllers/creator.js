@@ -1,10 +1,10 @@
-const { User, Deal, Profile } = require("../models");
+const { Deal, Profile } = require("../models");
 
 /**
  * Retrieve deals of a creator who has authenticated
- * @param {*} req - Request from frontend containing sign and filtering infos
- * @param {*} res - Response from server containing array of matched deals of a creator
- * @returns {object} - Response object
+ * @param {*} req
+ * @param {*} res
+ * @returns {object}
  */
 exports.getDeals = async (req, res) => {
   const deals = await Deal.find({ creator: req.user });
@@ -16,9 +16,9 @@ exports.getDeals = async (req, res) => {
 
 /**
  * Create a new deal with info which creator has sent
- * @param {*} req - Request from frontend containing deal infos
- * @param {*} res - Response from server containing success or error msg
- * @returns {object} - Response object
+ * @param {*} req
+ * @param {*} res
+ * @returns {object}
  */
 exports.createDeal = async (req, res) => {
   const creator = req.user._id,
@@ -32,14 +32,16 @@ exports.createDeal = async (req, res) => {
 
   const newDeal = new Deal({ creator, title, desc, price });
   await newDeal.save();
+  const deals = (await Deal.find({ creator: req.user._id })).length;
+  await Profile.findOneAndUpdate({ email: req.user.email }, { deals });
   return res.json({ success: "Your deal has successfully registered." });
 };
 
 /**
  * Retrieve profile of a creator who has authenticated
- * @param {*} req - Request from frontend containing signed creator infos
- * @param {*} res - Response from server containing object of profile
- * @returns {object} - Response object
+ * @param {*} req
+ * @param {*} res
+ * @returns {object}
  */
 exports.getProfile = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
@@ -52,9 +54,9 @@ exports.getProfile = async (req, res) => {
 
 /**
  * Create a new profile for creator
- * @param {*} req - Request from creator containing profile infos
- * @param {*} res - Response from server containing success or error msg
- * @returns {object} - Response object
+ * @param {*} req
+ * @param {*} res
+ * @returns {object}
  */
 exports.createProfile = async (req, res) => {
   const { name, birthday, email } = req.user;
@@ -66,7 +68,7 @@ exports.createProfile = async (req, res) => {
     return res.status(400).json({ error });
   }
 
-  const newProfile = new Profile({ name, email, birthday, intro });
+  const newProfile = new Profile({ name, email, birthday, intro, role: 1 });
   await newProfile.save();
   return res.json({ success: "Your profile has successfully published." });
 };

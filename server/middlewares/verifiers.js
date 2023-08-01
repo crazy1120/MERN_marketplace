@@ -13,9 +13,9 @@ module.exports = {
       return res.status(401).json({ error: "You are not a creator." });
     else next();
   },
-  broker: (req, res, next) => {
+  brand: (req, res, next) => {
     if (req.user.level !== 2)
-      return res.status(401).json({ error: "You are not a broker." });
+      return res.status(401).json({ error: "You are not a brand." });
     else next();
   },
   buyer: (req, res, next) => {
