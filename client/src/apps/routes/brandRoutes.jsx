@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Creators } from "../broker";
+import { Creators } from "../brand";
 
-const BrokerRoute = ({ children }) => {
+const BrandRoute = ({ children }) => {
   const navigate = useNavigate();
   const auth = useSelector(state => state.auth);
 
@@ -16,15 +16,15 @@ const BrokerRoute = ({ children }) => {
   return <>{children}</>;
 };
 
-const BrokerRoutes = [
+const BrandRoutes = [
   {
     path: "/creators",
     element: (
-      <BrokerRoute>
+      <BrandRoute>
         <Creators />
-      </BrokerRoute>
+      </BrandRoute>
     ),
   },
 ];
 
-export default BrokerRoutes;
+export default BrandRoutes;

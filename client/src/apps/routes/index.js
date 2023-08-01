@@ -1,6 +1,6 @@
 import Public from "./publicRoutes";
 import Creator from "./creatorRoutes";
-import Broker from "./brokerRoutes";
+import Brand from "./brandRoutes";
 import Buyer from "./buyerRoutes";
 
-export { Public, Creator, Broker, Buyer };
+export { Public, Creator, Brand, Buyer };

@@ -11,7 +11,7 @@ const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
   ...Routes.Public,
   ...Routes.Creator,
-  ...Routes.Broker,
+  ...Routes.Brand,
   ...Routes.Buyer,
 ]);
 

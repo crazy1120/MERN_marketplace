@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button } from "antd";
 
 import { actions } from "../../redux/slices/deal";
-import CommonLayout from "../layout";
+import CommonLayout, { Header } from "../layout";
 
 const Deal = ({ feature }) => {
   return (
@@ -19,7 +19,6 @@ const Deal = ({ feature }) => {
   );
 };
 
-// Main Component
 const Deals = () => {
   const dispatch = useDispatch();
   const { deals } = useSelector(state => state.deal);
@@ -46,4 +45,31 @@ const Deals = () => {
   );
 };
 
-export default Deals;
+const Guest = () => (
+  <>
+    <Header />
+    <div className="container deals-guest">
+      Here creators create and access their business.
+      <br />
+      If you want to become a creator, &nbsp;
+      <Link className="big-black-btn sentence-btn" to="/signup">
+        SIGN UP
+      </Link>
+      &nbsp; as creator first.
+      <br />
+      Or if you already have creator account, please &nbsp;
+      <Link className="big-black-btn sentence-btn" to="/signin">
+        SIGN IN
+      </Link>
+      &nbsp; to enjoy business.
+    </div>
+  </>
+);
+
+const Dashboard = () => {
+  const auth = useSelector(state => state.auth);
+
+  if (auth.isAuthenticated && auth.user.level === 1) return <Deals />;
+  else return <Guest />;
+};
+export default Dashboard;

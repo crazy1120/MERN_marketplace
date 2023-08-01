@@ -158,10 +158,10 @@ const Desktop = () => {
               </Row>
 
               <Row justify="center" style={{ marginTop: "50px" }}>
-                <Link className="big-black-btn" to="./signIn">
+                <Link className="big-black-btn" to="/signin">
                   SIGNIN
                 </Link>
-                <Link className="big-black-btn" to="./signUp">
+                <Link className="big-black-btn" to="/signup">
                   SIGNUP
                 </Link>
               </Row>

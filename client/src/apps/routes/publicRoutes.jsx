@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { SignIn } from "../auth";
+import { Dashboard } from "../creator";
 
 const PublicRoute = ({ children }) => {
   const navigate = useNavigate();
@@ -31,12 +32,16 @@ const PublicRoute = ({ children }) => {
 
 const PublicRoutes = [
   {
-    path: "/signIn",
+    path: "/signin",
     element: (
       <PublicRoute>
         <SignIn />
       </PublicRoute>
     ),
+  },
+  {
+    path: "/deals",
+    element: <Dashboard />,
   },
 ];
 

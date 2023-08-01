@@ -51,7 +51,7 @@ const SignInForm = () => {
 
         <div id="toSignUp">
           Don't have account?
-          <a href="/signUp" className="black-btn">
+          <a href="/signup" className="black-btn">
             Sign Up
           </a>
         </div>
