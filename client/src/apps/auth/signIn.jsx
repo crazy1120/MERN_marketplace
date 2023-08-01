@@ -1,15 +1,16 @@
 import { useContext } from "react";
 import { useDispatch } from "react-redux";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Checkbox, Divider, Form, Input } from "antd";
 
 import { actions } from "../../redux/slices/auth";
-import { formContext } from "../../redux/context";
-import CommonLayout from "../layout";
+import { formContext, commonContext } from "../../redux/context";
+import { Header } from "../layout";
 
 // Main Component
 const SignInForm = () => {
-  const dispatch = useDispatch();
-  const { state } = useContext(formContext);
+  const dispatch = useDispatch(),
+    form = useContext(formContext).state,
+    common = useContext(commonContext).state;
 
   const handleSubmit = values => dispatch(actions.signInStart(values));
 
@@ -18,37 +19,45 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="app-container">
+    <div className="container">
       <Form
         name="signInForm"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
         onFinish={handleSubmit}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Form.Item label="Email" name="email" rules={state.emailRule}>
+        <p>Sign in with your account</p>
+
+        <Divider orientation="left">Email</Divider>
+        <Form.Item name="email" rules={form.emailRule}>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Password" name="password" rules={state.passwordRule}>
+        <Divider orientation="left">Password</Divider>
+        <Form.Item name="password" rules={form.passwordRule}>
           <Input.Password />
         </Form.Item>
 
-        <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{ offset: 8, span: 16 }}
-        >
+        <Form.Item name="remember" valuePropName="checked">
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
+        <Form.Item>
+          <button type="submit" className="black-btn">
+            Sign In
+          </button>
         </Form.Item>
+
+        <p>Or Sign in with</p>
+        <span>
+          <a href="https://accounts.google.com">
+            <img src={common.googleImage} alt="Google" />
+          </a>
+          <a href="https://linkedin.com">
+            <img src={common.linkedinImage} alt="Linkedin" />
+          </a>
+        </span>
       </Form>
     </div>
   );
@@ -56,9 +65,10 @@ const SignInForm = () => {
 
 const SignIn = () => {
   return (
-    <CommonLayout>
+    <>
+      <Header />
       <SignInForm />
-    </CommonLayout>
+    </>
   );
 };
 

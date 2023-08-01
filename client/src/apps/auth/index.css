@@ -1,4 +1,46 @@
 #signInForm {
-  margin: 0 auto;
   width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  padding: 4%;
+  border-radius: 20px;
+  margin: 80px auto;
+}
+
+#signInForm p {
+  font-size: 24px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+#signInForm button {
+  width: 100%;
+  font-size: 16px;
+  margin: 0;
+}
+
+#signInForm_remember span {
+  background-color: rgba(31, 41, 55, 0.9);
+}
+
+#signInForm span {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+#signInForm span a {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 40%;
+  height: 20px;
+  padding: 4% 0 3%;
+  border-radius: 5px;
+  margin: 2%;
+}
+
+#signInForm span img {
+  width: 20px;
+  margin: 0 10%;
 }
