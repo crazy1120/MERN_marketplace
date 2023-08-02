@@ -19,6 +19,12 @@
   box-shadow: 0 0 15px rgba(128, 128, 128, 0.9);
   border-radius: 10px;
   margin: 20px;
+  transition: 0.5s;
+}
+
+.creator-box:hover {
+  transform: scale(1.05, 1.05);
+  box-shadow: 0 0 20px rgba(64, 64, 64, 1);
 }
 
 .creator-box img {
@@ -26,19 +32,19 @@
   margin: 0 15px 0 30px;
 }
 
-.creator-box > p:first-of-type {
+.creator-box span p:first-of-type {
   font-size: 18px;
   font-weight: 500;
 }
 
-.creator-box > span {
+.creator-box > span:last-of-type {
   display: flex;
   align-items: center;
   font-size: 18px;
   justify-content: flex-end;
 }
 
-.creator-box > span button {
+.creator-box > span:last-of-type button {
   background: white;
   border: none;
   cursor: pointer;

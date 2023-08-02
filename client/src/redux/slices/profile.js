@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   creators: [],
+  deals: [],
   profile: {},
   loading: false,
   error: null,
@@ -46,6 +47,19 @@ const profileSlice = createSlice({
       state.creators = payload;
     },
     getCreatorsFailure: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
+    getDealsPublicStart: state => {
+      state.loading = true;
+      state.error = null;
+    },
+    getDealsPublicSuccess: (state, { payload }) => {
+      state.loading = false;
+      state.error = null;
+      state.deals = payload;
+    },
+    getDealsPublicFailed: (state, { payload }) => {
       state.loading = false;
       state.error = payload;
     },

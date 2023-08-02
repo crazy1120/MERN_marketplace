@@ -33,8 +33,18 @@ function* getCreators() {
   }
 }
 
+function* getDealsPublic(creator) {
+  try {
+    const res = yield api.get(`/public/creators/${creator}`);
+    yield put(actions.getDealsPublicSuccess(res.data));
+  } catch (err) {
+    yield put(actions.getDealsPublicFailed(err.response.data));
+  }
+}
+
 export default function* profileSagas() {
   yield takeLatest("profile/getProfileStart", getProfile);
   yield takeLatest("profile/createProfileStart", createProfile);
   yield takeLatest("profile/getCreatorsStart", getCreators);
+  yield takeLatest("profile/getDealsPublicStart", getDealsPublic);
 }

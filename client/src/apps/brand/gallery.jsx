@@ -1,34 +1,82 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useContext, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, Popconfirm, Tooltip } from "antd";
 
-import CommonLayout, { Header } from "../layout";
-import Creators from "./creators";
+import { useRedirect } from "../hooks";
+import { actions } from "../../redux/slices/profile";
+import { textContext, imageContext } from "../../redux/context";
 
-const Brand = () => (
-  <CommonLayout>
-    <div id="creatorsGallery" className="app-container">
-      <Creators />
-    </div>
-  </CommonLayout>
-);
+import { SelectiveRender } from ".";
 
-const Guest = () => (
-  <>
-    <Header />
-    <div className="container">
+const Creators = () => {
+  const dispatch = useDispatch(),
+    { state: image } = useContext(imageContext),
+    { state: text } = useContext(textContext),
+    { creators } = useSelector(state => state.profile),
+    { isAuthenticated } = useSelector(state => state.auth),
+    redirect = useRedirect();
+
+  useEffect(() => {
+    dispatch(actions.getCreatorsStart());
+  }, []);
+
+  const toSignIn = () => redirect("/signin");
+
+  const agreeCreator = () => {
+    console.log("object");
+  };
+
+  const getDealsPublic = creator => redirect(`/creator/${creator}`);
+
+  return (
+    <>
       <p id="meetCreators">Meet all creators</p>
       <div id="creatorsGallery">
-        <Creators />
+        {creators.map(creator => (
+          <div key={creator.email} className="creator-box">
+            <Tooltip
+              title={`${text.introCreatorTooltip} ${creator.name}`}
+              onClick={() => getDealsPublic(creator._id)}
+            >
+              <p>{creator.name}</p>
+              <p>{creator.intro}</p>
+            </Tooltip>
+            <span>
+              {!isAuthenticated && (
+                <Popconfirm
+                  placement="top"
+                  title={text.signAlertConfirmTitle}
+                  description={text.signAlertConfirmDesc}
+                  onConfirm={toSignIn}
+                  okText="Sign In Now"
+                  cancelText="No, any time later"
+                >
+                  <Button>
+                    <img src={image.iconAgree} alt="like" />
+                  </Button>
+                </Popconfirm>
+              )}
+              {isAuthenticated && (
+                <button onClick={agreeCreator}>
+                  <img src={image.iconAgree} alt="like" />
+                </button>
+              )}
+              {creator.likes}
+
+              <img src={image.iconSponsor} alt="sponsor" />
+              {creator.deals}
+            </span>
+          </div>
+        ))}
       </div>
-    </div>
-  </>
-);
-
-const Gallery = () => {
-  const auth = useSelector(state => state.auth);
-
-  if (auth.isAuthenticated && auth.user.level === 2) return <Brand />;
-  else return <Guest />;
+    </>
+  );
 };
+
+const Gallery = () => (
+  <SelectiveRender>
+    <Creators />
+  </SelectiveRender>
+);
 
 export default Gallery;

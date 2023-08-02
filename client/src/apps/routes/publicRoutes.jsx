@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import { SignIn } from "../auth";
 import { Dashboard } from "../creator";
-import { Gallery } from "../brand";
+import { Gallery, Creator } from "../brand";
 
 const PublicRoute = ({ children }) => {
   const navigate = useNavigate();
@@ -47,6 +47,10 @@ const PublicRoutes = [
   {
     path: "/creators",
     element: <Gallery />,
+  },
+  {
+    path: "/creator/:creator",
+    element: <Creator />,
   },
 ];
 
