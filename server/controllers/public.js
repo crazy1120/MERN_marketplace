@@ -1,4 +1,4 @@
-const { Profile } = require("../models");
+const { Profile, Deal } = require("../models");
 
 /**
  * Retrieve profile of all creators
@@ -7,11 +7,26 @@ const { Profile } = require("../models");
  * @returns {object}
  */
 exports.getCreators = async (req, res) => {
-  const creators = await Profile.find({ role: 1 });
+  const creators = await Profile.find({ role: 1, deals: { $gt: 0 } });
   if (creators.length) return res.json(creators);
 
   const error = "There exists no profiles of creators.";
   return res.status(404).json(error);
+};
+
+/**
+ * Retrieve deals of a creator
+ * @param {*} req
+ * @param {*} res
+ * @returns {object}
+ */
+exports.getDeals = async (req, res) => {
+  try {
+    const deals = await Deal.find({ creator: req.params.creator });
+    if (deals.length) return res.json(deals);
+  } catch (err) {
+    return res.status(400).json(err);
+  }
 };
 
 /**

@@ -15,6 +15,9 @@ router.route("/creators").get(public.getCreators);
  * @methods PATCH
  * @access Private
  */
-router.route("/creators/:id").patch(verifiers.auth, public.agreeCreator);
+router
+  .route("/creators/:id")
+  .get(public.getDeals)
+  .patch(verifiers.auth, public.agreeCreator);
 
 module.exports = router;
