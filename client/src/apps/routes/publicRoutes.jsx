@@ -33,7 +33,7 @@ const PublicRoute = ({ children }) => {
 
 const PublicRoutes = [
   {
-    path: "/signin",
+    path: "signin",
     element: (
       <PublicRoute>
         <SignIn />
@@ -41,7 +41,7 @@ const PublicRoutes = [
     ),
   },
   {
-    path: "/signup",
+    path: "signup",
     element: (
       <PublicRoute>
         <SignUp />
@@ -49,15 +49,15 @@ const PublicRoutes = [
     ),
   },
   {
-    path: "/deals",
+    path: "deals",
     element: <Dashboard />,
   },
   {
-    path: "/creators",
+    path: "creators",
     element: <Gallery />,
   },
   {
-    path: "/creator/:creator",
+    path: "creator/:creator",
     element: <Creator />,
   },
 ];

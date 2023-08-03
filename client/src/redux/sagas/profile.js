@@ -33,6 +33,7 @@ function* getCreators() {
   }
 }
 
+// Get all deals of a creator by common users
 function* getDealsPublic({ payload: creator }) {
   try {
     const res = yield api.get(`/public/creators/${creator}`);

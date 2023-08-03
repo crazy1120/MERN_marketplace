@@ -4,7 +4,7 @@ import Sider from "./components/sider";
 
 export { Header };
 
-const CommonLayout = ({ children }) => {
+export const CommonLayout = ({ children }) => {
   return (
     <>
       <Header />
@@ -28,5 +28,3 @@ export const PublicLayout = ({ children }) => (
     <div className="container">{children}</div>
   </>
 );
-
-export default CommonLayout;

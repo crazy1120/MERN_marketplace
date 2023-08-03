@@ -12,7 +12,7 @@ const { User } = require("../models"),
  * @returns {object} - Response object
  */
 exports.signUp = async (req, res) => {
-  const { name, email, birthday, sex, location, telephone, password, level } =
+  const { name, email, birthday, gender, location, phone, password, level } =
     req.body;
 
   //Check email existence
@@ -27,9 +27,9 @@ exports.signUp = async (req, res) => {
     name,
     email,
     birthday,
-    sex,
+    gender,
     location,
-    telephone,
+    phone,
     password,
     level: levelOption[level],
   });

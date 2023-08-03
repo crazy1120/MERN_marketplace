@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Creators } from "../brand";
-
 const BrandRoute = ({ children }) => {
   const navigate = useNavigate();
   const auth = useSelector(state => state.auth);

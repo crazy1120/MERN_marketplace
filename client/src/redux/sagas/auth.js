@@ -1,8 +1,9 @@
 import { api } from "../utils";
-import { put, takeEvery } from "redux-saga/effects";
+import { put, takeLatest } from "redux-saga/effects";
 
 import { actions } from "../slices/auth";
 
+// Sign in with own email and password saga
 function* signInWithCredentials({ payload: { email, password } }) {
   try {
     const res = yield api.post("/signIn", { email, password });
@@ -14,27 +15,19 @@ function* signInWithCredentials({ payload: { email, password } }) {
   }
 }
 
-export default function* authSagas() {
-  yield takeEvery("auth/signInStart", signInWithCredentials);
+// Sign up with own info saga
+function* signUp({ payload }) {
+  try {
+    const res = yield api.post("/signUp", payload);
+    const { email, password } = payload;
+    yield put(actions.signUpSuccess(res.data));
+    yield put(actions.signInStart({ email, password }));
+  } catch (err) {
+    yield put(actions.signUpFailure(err.response.data));
+  }
 }
 
-// export function* signUpWithCredentials({ payload: { email, password } }) {
-//   try {
-//     yield signUp(email, password);
-//     yield put(signUpSuccess({ email, password }));
-//   } catch (err) {
-//     yield put(signUpFailure(err));
-//   }
-// }
-
-// export function* signInAftersignUp({ payload: { email, password } }) {
-//   yield signInWithCredentials({ payload: { email, password } });
-// }
-
-// export function* onSignUpStart() {
-//   yield takeLatest("SIGNUp_START", signUpWithCredentials);
-// }
-
-// export function* onSignUpSuccess() {
-//   yield takeLatest("SIGNUp_SUCCESS", signInAftersignUp);
-// }
+export default function* authSagas() {
+  yield takeLatest("auth/signInStart", signInWithCredentials);
+  yield takeLatest("auth/signUpStart", signUp);
+}

@@ -38,6 +38,7 @@ const state = {
       ],
     },
   ],
+  signUpPhonePrefixes: [212, 380],
   genderSelection: "Select your gender",
   levelSelection: {
     title: "What do you want here?",

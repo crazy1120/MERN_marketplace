@@ -31,6 +31,18 @@ const authSlice = createSlice({
       state.loading = false;
       state.error = payload;
     },
+    signUpStart: state => {
+      state.loading = true;
+      state.error = null;
+    },
+    signUpSuccess: state => {
+      state.loading = false;
+      state.error = null;
+    },
+    signUpFailure: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
     signOut: state => {
       localStorage.removeItem("token");
       setAuthToken(null);

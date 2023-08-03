@@ -8,9 +8,9 @@ module.exports = (data) => {
     "name",
     "email",
     "birthday",
-    "sex",
+    "gender",
     "location",
-    "telephone",
+    "phone",
     "password",
     "confirm",
   ];
@@ -41,7 +41,6 @@ module.exports = (data) => {
   if (!Validator.isDate(data.birthday)) {
     errors.birthday = "Birthday data you entered is not a valid date.";
   }
-
   // Empty fields validator
   for (const field of fields) {
     if (Validator.isEmpty(data[field])) {

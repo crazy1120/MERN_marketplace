@@ -25,7 +25,7 @@ const Deals = () => {
           ))}
         </div>
         <div id="createLink">
-          <Link to={"/createDeal"}>
+          <Link to={"/create-deal"}>
             <Button type="primary">Create Deal</Button>
           </Link>
         </div>

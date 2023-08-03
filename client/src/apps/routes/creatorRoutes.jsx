@@ -24,15 +24,7 @@ const CreatorRoute = ({ children }) => {
 
 const CreatorRoutes = [
   {
-    path: "/deals",
-    element: (
-      <CreatorRoute>
-        <Dashboard />
-      </CreatorRoute>
-    ),
-  },
-  {
-    path: "/createDeal",
+    path: "create-deal",
     element: (
       <CreatorRoute>
         <CreateDeal />
@@ -40,7 +32,7 @@ const CreatorRoutes = [
     ),
   },
   {
-    path: "/creator/profile",
+    path: "creator/profile",
     element: (
       <CreatorRoute>
         <Profile />
@@ -48,7 +40,7 @@ const CreatorRoutes = [
     ),
   },
   {
-    path: "/creator/profile/create",
+    path: "creator/profile/create",
     element: (
       <CreatorRoute>
         <CreateProfile />
@@ -56,7 +48,7 @@ const CreatorRoutes = [
     ),
   },
   {
-    path: "/creator/channels",
+    path: "creator/channels",
     element: (
       <CreatorRoute>
         <Channels />

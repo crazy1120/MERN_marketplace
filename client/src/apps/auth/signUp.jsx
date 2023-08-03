@@ -1,13 +1,12 @@
 import React from "react";
 import { useContext } from "react";
-// import { useDispatch } from "react-redux";
-// import { Checkbox, Divider, Form, Input } from "antd";
+import { useDispatch } from "react-redux";
+import { Cascader, Checkbox, DatePicker, Form, Input, Select } from "antd";
 
-// import { actions } from "../../redux/slices/auth";
+import { actions } from "../../redux/slices/auth";
 import * as context from "../../redux/context";
 import { PublicLayout } from "../layout";
 
-import { Cascader, Checkbox, DatePicker, Form, Input, Select } from "antd";
 const { Option } = Select;
 
 const SignUpForm = () => {
@@ -15,21 +14,28 @@ const SignUpForm = () => {
     formRules = useContext(context.formContext).state,
     texts = useContext(context.textContext).state,
     image = useContext(context.imageContext).state,
-    [form] = Form.useForm();
+    [form] = Form.useForm(),
+    dispatch = useDispatch();
 
   const onFinish = values => {
-    console.log("Received values of form: ", values);
+    values.phone = values.prefix + " " + values.phone;
+    values.location = values.location.join("-");
+    const { $y: y, $M: m, $D: d } = values.birthday;
+    values.birthday = `${y}-${m + 1 < 10 ? "0" + (m + 1) : m + 1}-${
+      d < 10 ? "0" + d : d
+    }`;
+
+    dispatch(actions.signUpStart(values));
   };
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
-      <Select
-        style={{
-          width: 100,
-        }}
-      >
-        <Option value="212">+212</Option>
-        <Option value="380">+380</Option>
+      <Select>
+        {texts.signUpPhonePrefixes.map(phonePrefix => (
+          <Option key={phonePrefix} value={phonePrefix}>
+            +{phonePrefix}
+          </Option>
+        ))}
       </Select>
     </Form.Item>
   );
@@ -39,7 +45,7 @@ const SignUpForm = () => {
       form={form}
       name="signUpForm"
       onFinish={onFinish}
-      initialValues={{ prefix: "212" }}
+      initialValues={{ prefix: "+212" }}
       scrollToFirstError
     >
       <p>Create your account</p>
@@ -58,7 +64,6 @@ const SignUpForm = () => {
           <Select placeholder={texts.genderSelection}>
             <Option value="male">Male</Option>
             <Option value="female">Female</Option>
-            <Option value="other">Other</Option>
           </Select>
         </Form.Item>
 
@@ -114,7 +119,7 @@ const SignUpForm = () => {
         <Input addonBefore={prefixSelector} />
       </Form.Item>
 
-      <Form.Item name="level" label="Level" rules={formRules.levelRule}>
+      <Form.Item name="level" label="Role" rules={formRules.levelRule}>
         <Select placeholder={texts.levelSelection.title}>
           <Option value="creator">{texts.levelSelection.creator}</Option>
           <Option value="brand">{texts.levelSelection.brand}</Option>
