@@ -1,4 +1,4 @@
-const { Profile, Deal } = require("../models");
+const { Profile, Deal, User } = require("../models");
 
 /**
  * Retrieve profile of all creators

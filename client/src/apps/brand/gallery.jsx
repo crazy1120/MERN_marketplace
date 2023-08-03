@@ -36,7 +36,7 @@ const Creators = () => {
           <div key={creator.email} className="creator-box">
             <Tooltip
               title={`${text.introCreatorTooltip} ${creator.name}`}
-              onClick={() => getDealsPublic(creator._id)}
+              onClick={() => getDealsPublic(creator.owner)}
             >
               <p>{creator.name}</p>
               <p>{creator.intro}</p>

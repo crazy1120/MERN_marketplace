@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { SignIn } from "../auth";
+import { SignIn, SignUp } from "../auth";
 import { Dashboard } from "../creator";
 import { Gallery, Creator } from "../brand";
 
@@ -37,6 +37,14 @@ const PublicRoutes = [
     element: (
       <PublicRoute>
         <SignIn />
+      </PublicRoute>
+    ),
+  },
+  {
+    path: "/signup",
+    element: (
+      <PublicRoute>
+        <SignUp />
       </PublicRoute>
     ),
   },

@@ -51,6 +51,7 @@ const profileSlice = createSlice({
       state.error = payload;
     },
     getDealsPublicStart: state => {
+      state.deals = [];
       state.loading = true;
       state.error = null;
     },

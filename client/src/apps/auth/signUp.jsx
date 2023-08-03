@@ -7,7 +7,7 @@ import { formContext, imageContext } from "../../redux/context";
 import { Header } from "../layout";
 
 // Main Component
-const SignInForm = () => {
+const SignUpForm = () => {
   const dispatch = useDispatch(),
     form = useContext(formContext).state,
     image = useContext(imageContext).state;
@@ -70,13 +70,13 @@ const SignInForm = () => {
   );
 };
 
-const SignIn = () => {
+const SignUp = () => {
   return (
     <>
       <Header />
-      <SignInForm />
+      <SignUpForm />
     </>
   );
 };
 
-export default SignIn;
+export default SignUp;

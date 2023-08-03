@@ -33,7 +33,7 @@ function* getCreators() {
   }
 }
 
-function* getDealsPublic(creator) {
+function* getDealsPublic({ payload: creator }) {
   try {
     const res = yield api.get(`/public/creators/${creator}`);
     yield put(actions.getDealsPublicSuccess(res.data));
