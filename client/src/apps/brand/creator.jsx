@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { actions } from "../../redux/slices/profile";
-import { SelectiveRender } from ".";
+import { BrandSelectiveRender } from ".";
 
 const CreatorOverview = ({ creator }) => {
   const dispatch = useDispatch(),
@@ -29,9 +29,9 @@ const Creator = () => {
   const { creator } = useParams();
 
   return (
-    <SelectiveRender>
+    <BrandSelectiveRender>
       <CreatorOverview creator={creator} />
-    </SelectiveRender>
+    </BrandSelectiveRender>
   );
 };
 

@@ -16,4 +16,17 @@ const CommonLayout = ({ children }) => {
   );
 };
 
+export const PrivateLayout = ({ children }) => (
+  <CommonLayout>
+    <div className="app-container">{children}</div>
+  </CommonLayout>
+);
+
+export const PublicLayout = ({ children }) => (
+  <>
+    <Header />
+    <div className="container">{children}</div>
+  </>
+);
+
 export default CommonLayout;

@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import CommonLayout from "../layout";
-import DealForm from "./dealForm";
+import { PrivateLayout } from "../layout";
+import { DealForm } from "./components";
 import { actions } from "../../redux/slices/deal";
 
 const CreateDeal = () => {
@@ -11,9 +11,9 @@ const CreateDeal = () => {
   const handleSubmit = values => dispatch(actions.createDealStart(values));
 
   return (
-    <CommonLayout>
+    <PrivateLayout>
       <DealForm action="Create" handleSubmit={handleSubmit} />
-    </CommonLayout>
+    </PrivateLayout>
   );
 };
 

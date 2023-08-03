@@ -1,3 +1,4 @@
+/* Sign In Form */
 #signInForm {
   width: 400px;
   display: flex;
@@ -6,7 +7,7 @@
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   padding: 4%;
   border-radius: 20px;
-  margin: 80px auto;
+  margin: 60px auto;
 }
 
 #signInForm p {
@@ -25,13 +26,20 @@
   background-color: rgba(31, 41, 55, 0.9);
 }
 
-#signInForm span {
+/* SignUpForm */
+#signUpForm {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* common  */
+.third-auth {
   text-align: center;
   display: flex;
   justify-content: space-around;
 }
 
-#signInForm span a {
+.third-auth a {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   width: 40%;
   height: 20px;
@@ -40,17 +48,17 @@
   margin: 2%;
 }
 
-#signInForm span img {
+.third-auth img {
   width: 20px;
   margin: 0 10%;
 }
 
-#toSignUp {
+.sign-switch {
   font-size: 16px;
   text-align: end;
 }
 
-#toSignUp a {
+.sign-switch a {
   font-size: 16px;
   padding: 5px 15px 7px;
   border-radius: 8px;

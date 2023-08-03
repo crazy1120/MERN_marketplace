@@ -6,7 +6,7 @@ import { useRedirect } from "../hooks";
 import { actions } from "../../redux/slices/profile";
 import { textContext, imageContext } from "../../redux/context";
 
-import { SelectiveRender } from ".";
+import { BrandSelectiveRender } from ".";
 
 const Creators = () => {
   const dispatch = useDispatch(),
@@ -74,9 +74,9 @@ const Creators = () => {
 };
 
 const Gallery = () => (
-  <SelectiveRender>
+  <BrandSelectiveRender>
     <Creators />
-  </SelectiveRender>
+  </BrandSelectiveRender>
 );
 
 export default Gallery;

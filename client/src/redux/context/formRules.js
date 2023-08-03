@@ -10,6 +10,10 @@ const formRules = {
   ],
   emailRule: [
     {
+      type: "email",
+      message: "The input is not valid E-mail!",
+    },
+    {
       required: true,
       message: "Please input your email!",
     },
@@ -24,6 +28,39 @@ const formRules = {
     {
       required: true,
       message: "Please input your password!",
+    },
+  ],
+  confirmRule: [
+    {
+      required: true,
+      message: "Please confirm your password!",
+    },
+  ],
+  confirmMatch: "The new password that you entered do not match!",
+  locationRule: [
+    {
+      type: "array",
+      required: true,
+      message: "Please select your current location!",
+    },
+  ],
+  phoneRule: [
+    {
+      required: true,
+      message: "Please input your phone number!",
+    },
+  ],
+  genderRule: [
+    {
+      required: true,
+      message: "Please select gender!",
+    },
+  ],
+  agreeRule: "Should accept agreement",
+  levelRule: [
+    {
+      required: true,
+      message: "Please select your role in this site!",
     },
   ],
 

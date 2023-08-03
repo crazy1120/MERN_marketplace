@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import CommonLayout from "../layout";
-import ProfileForm from "./profileForm";
+import { PublicLayout } from "../layout";
+import { ProfileForm } from "./components";
 import { actions } from "../../redux/slices/profile";
 
 const CreateProfile = () => {
@@ -11,9 +11,9 @@ const CreateProfile = () => {
   const handleSubmit = values => dispatch(actions.createProfileStart(values));
 
   return (
-    <CommonLayout>
+    <PublicLayout>
       <ProfileForm action="Publish" handleSubmit={handleSubmit} />
-    </CommonLayout>
+    </PublicLayout>
   );
 };
 

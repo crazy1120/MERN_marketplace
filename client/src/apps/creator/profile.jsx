@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "antd";
 
-import CommonLayout from "../layout";
+import { PrivateLayout } from "../layout";
 import { actions } from "../../redux/slices/profile";
 
 const Profile = () => {
@@ -15,8 +15,8 @@ const Profile = () => {
   }, []);
 
   return (
-    <CommonLayout>
-      <div id="creatorProfile" className="app-container">
+    <PrivateLayout>
+      <div id="creatorProfile">
         {!!profile.name && (
           <div className="create-profile-box">
             <h6>{profile.name}</h6>
@@ -35,10 +35,8 @@ const Profile = () => {
           </div>
         )}
       </div>
-    </CommonLayout>
+    </PrivateLayout>
   );
 };
-
-Profile.propTypes = {};
 
 export default Profile;

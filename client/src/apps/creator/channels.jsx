@@ -1,15 +1,9 @@
 import React from "react";
 
-import CommonLayout from "../layout";
+import { PrivateLayout } from "../layout";
 
-const Channels = () => {
-  return (
-    <CommonLayout>
-      <div className="app-container">
-        acceptable Channels or else create channel
-      </div>
-    </CommonLayout>
-  );
-};
+const Channels = () => (
+  <PrivateLayout>acceptable Channels or else create channel</PrivateLayout>
+);
 
 export default Channels;

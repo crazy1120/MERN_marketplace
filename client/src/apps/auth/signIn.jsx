@@ -4,9 +4,8 @@ import { Checkbox, Divider, Form, Input } from "antd";
 
 import { actions } from "../../redux/slices/auth";
 import { formContext, imageContext } from "../../redux/context";
-import { Header } from "../layout";
+import { PublicLayout } from "../layout";
 
-// Main Component
 const SignInForm = () => {
   const dispatch = useDispatch(),
     form = useContext(formContext).state,
@@ -19,64 +18,59 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="container">
-      <Form
-        name="signInForm"
-        initialValues={{ remember: true }}
-        onFinish={handleSubmit}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        <p>Sign in with your account</p>
+    <Form
+      name="signInForm"
+      initialValues={{ remember: true }}
+      onFinish={handleSubmit}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
+    >
+      <p>Sign in with your account</p>
 
-        <Divider orientation="left">Email</Divider>
-        <Form.Item name="email" rules={form.emailRule}>
-          <Input />
-        </Form.Item>
+      <Divider orientation="left">Email</Divider>
+      <Form.Item name="email" rules={form.emailRule}>
+        <Input />
+      </Form.Item>
 
-        <Divider orientation="left">Password</Divider>
-        <Form.Item name="password" rules={form.passwordRule}>
-          <Input.Password />
-        </Form.Item>
+      <Divider orientation="left">Password</Divider>
+      <Form.Item name="password" rules={form.passwordRule}>
+        <Input.Password />
+      </Form.Item>
 
-        <Form.Item name="remember" valuePropName="checked">
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+      <Form.Item name="remember" valuePropName="checked">
+        <Checkbox>Remember me</Checkbox>
+      </Form.Item>
 
-        <Form.Item>
-          <button type="submit" className="black-btn">
-            Sign In
-          </button>
-        </Form.Item>
+      <Form.Item>
+        <button type="submit" className="black-btn">
+          Sign In
+        </button>
+      </Form.Item>
 
-        <div id="toSignUp">
-          Don't have account?
-          <a href="/signup" className="black-btn">
-            Sign Up
-          </a>
-        </div>
+      <div className="sign-switch">
+        Don't have account?
+        <a href="/signup" className="black-btn">
+          Sign Up
+        </a>
+      </div>
 
-        <p>Or Continue with</p>
-        <span>
-          <a href="https://accounts.google.com">
-            <img src={image.googleImage} alt="Google" />
-          </a>
-          <a href="https://linkedin.com">
-            <img src={image.linkedinImage} alt="Linkedin" />
-          </a>
-        </span>
-      </Form>
-    </div>
+      <p>Or Continue with</p>
+      <span className="third-auth">
+        <a href="https://accounts.google.com">
+          <img src={image.googleImage} alt="Google" />
+        </a>
+        <a href="https://linkedin.com">
+          <img src={image.linkedinImage} alt="Linkedin" />
+        </a>
+      </span>
+    </Form>
   );
 };
 
-const SignIn = () => {
-  return (
-    <>
-      <Header />
-      <SignInForm />
-    </>
-  );
-};
+const SignIn = () => (
+  <PublicLayout>
+    <SignInForm />
+  </PublicLayout>
+);
 
 export default SignIn;

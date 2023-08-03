@@ -4,6 +4,47 @@ const state = {
   signAlertConfirmTitle: "Sign In First",
   signAlertConfirmDesc: "After you sign in, you can follow creator.",
   introCreatorTooltip: "Click here, you can visit deals of Mr",
+  signUpLocations: [
+    {
+      value: "Morocco",
+      label: "Morocco",
+      children: [
+        {
+          value: "Casablanca",
+          label: "Casablanca",
+          children: [
+            { value: "East", label: "East" },
+            { value: "West", label: "West" },
+            { value: "North", label: "North" },
+            { value: "South", label: "South" },
+          ],
+        },
+      ],
+    },
+    {
+      value: "Ukraine",
+      label: "Ukraine",
+      children: [
+        {
+          value: "Odesa",
+          label: "Odesa",
+          children: [
+            { value: "East", label: "East" },
+            { value: "West", label: "West" },
+            { value: "North", label: "North" },
+            { value: "South", label: "South" },
+          ],
+        },
+      ],
+    },
+  ],
+  genderSelection: "Select your gender",
+  levelSelection: {
+    title: "What do you want here?",
+    creator: "I want to create and share my business",
+    brand: "I want to affiliate creators",
+    buyer: "Just watch and want to buy goods",
+  },
 };
 
 const initialContext = {
