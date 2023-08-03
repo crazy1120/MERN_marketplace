@@ -14,9 +14,9 @@ function* getProfile() {
 }
 
 // Create a profile of creator saga
-function* createProfile({ payload: { intro } }) {
+function* createProfile({ payload }) {
   try {
-    const res = yield api.post("/creator/profile", { intro });
+    const res = yield api.post("/creator/profile", payload);
     yield put(actions.createProfileSuccess(res));
   } catch (err) {
     yield put(actions.createProfileFailure(err.response.data));

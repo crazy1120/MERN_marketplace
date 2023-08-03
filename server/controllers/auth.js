@@ -22,7 +22,7 @@ exports.signUp = async (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const levelOption = { creator: 1, broker: 2, buyer: 3 };
+  const levelOption = { creator: 1, brand: 2, buyer: 3 };
   const newUser = new User({
     name,
     email,

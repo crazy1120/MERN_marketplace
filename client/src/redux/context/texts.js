@@ -43,7 +43,7 @@ const state = {
   levelSelection: {
     title: "What do you want here?",
     creator: "I want to create and share my business",
-    brand: "I want to affiliate creators",
+    brand: "I want to cater creators",
     buyer: "Just watch and want to buy goods",
   },
 };

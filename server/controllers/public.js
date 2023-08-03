@@ -7,7 +7,7 @@ const { Profile, Deal, User } = require("../models");
  * @returns {object}
  */
 exports.getCreators = async (req, res) => {
-  const creators = await Profile.find({ role: 1, deals: { $gt: 0 } });
+  const creators = await Profile.find({ role: 1 });
   if (creators.length) return res.json(creators);
 
   const error = "There exists no profiles of creators.";

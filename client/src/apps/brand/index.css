@@ -32,6 +32,10 @@
   margin: 0 15px 0 30px;
 }
 
+.creator-box > span :first-child {
+  cursor: pointer;
+}
+
 .creator-box span p:first-of-type {
   font-size: 18px;
   font-weight: 500;

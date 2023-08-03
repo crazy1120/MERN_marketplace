@@ -46,10 +46,11 @@
 .create-profile-box {
   width: 400px;
   text-align: center;
-  background: orange;
+  background: #444;
   padding-bottom: 3%;
   border-radius: 12px;
-  border: 3px solid orange;
+  border: 3px solid #444;
+  box-shadow: 0 0 15px rgba(31, 44, 55, 0.9);
   margin: 40px auto;
 }
 

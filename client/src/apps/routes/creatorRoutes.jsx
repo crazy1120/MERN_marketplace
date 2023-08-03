@@ -1,13 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import {
-  Dashboard,
-  CreateDeal,
-  Profile,
-  CreateProfile,
-  Channels,
-} from "../creator";
+import { CreateDeal, Profile, CreateProfile, Channels } from "../creator";
 import { useEffect } from "react";
 
 const CreatorRoute = ({ children }) => {

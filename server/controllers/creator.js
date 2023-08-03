@@ -48,7 +48,8 @@ exports.getProfile = async (req, res) => {
   if (profile) {
     return res.json(profile);
   }
-  const error = "Please edit and publish your profile.";
+  const error =
+    "Please edit and publish your profile. Once you create your profile, your deals will be visible to others.";
   return res.status(404).json(error);
 };
 
@@ -59,8 +60,7 @@ exports.getProfile = async (req, res) => {
  * @returns {object}
  */
 exports.createProfile = async (req, res) => {
-  const { name, birthday, email } = req.user;
-  const { intro } = req.body;
+  const { name, birthday, email, intro } = req.body;
 
   const profile = await Profile.findOne({ email });
   if (profile) {
@@ -68,7 +68,17 @@ exports.createProfile = async (req, res) => {
     return res.status(400).json({ error });
   }
 
-  const newProfile = new Profile({ name, email, birthday, intro, role: 1 });
+  const deals = (await Deal.find({ creator: req.user._id })).length;
+
+  const newProfile = new Profile({
+    owner: req.user,
+    name,
+    email,
+    birthday,
+    intro,
+    role: 1,
+    deals,
+  });
   await newProfile.save();
   return res.json({ success: "Your profile has successfully published." });
 };

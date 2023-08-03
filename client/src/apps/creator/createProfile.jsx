@@ -1,19 +1,21 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { PublicLayout } from "../layout";
+import { PrivateLayout } from "../layout";
 import { ProfileForm } from "./components";
 import { actions } from "../../redux/slices/profile";
 
 const CreateProfile = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = values => dispatch(actions.createProfileStart(values));
+  const handleSubmit = values => {
+    dispatch(actions.createProfileStart(values));
+  };
 
   return (
-    <PublicLayout>
+    <PrivateLayout>
       <ProfileForm action="Publish" handleSubmit={handleSubmit} />
-    </PublicLayout>
+    </PrivateLayout>
   );
 };
 
