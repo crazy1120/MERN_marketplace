@@ -27,6 +27,7 @@ const profileSlice = createSlice({
     getProfileStart: state => {
       state.loading = true;
       state.error = null;
+      state.profile = {};
     },
     getProfileSuccess: (state, { payload }) => {
       state.loading = false;
@@ -34,6 +35,20 @@ const profileSlice = createSlice({
       state.profile = payload;
     },
     getProfileFailure: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
+    getProfilePublicStart: state => {
+      state.loading = true;
+      state.error = null;
+      state.profile = {};
+    },
+    getProfilePublicSuccess: (state, { payload }) => {
+      state.loading = false;
+      state.error = null;
+      state.profile = payload;
+    },
+    getProfilePublicFailure: (state, { payload }) => {
       state.loading = false;
       state.error = payload;
     },

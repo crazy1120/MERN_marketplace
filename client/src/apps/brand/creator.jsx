@@ -7,14 +7,16 @@ import { BrandSelectiveRender } from ".";
 
 const CreatorOverview = ({ creator }) => {
   const dispatch = useDispatch(),
-    { deals } = useSelector(state => state.profile);
+    { profile, deals } = useSelector(state => state.profile);
 
   useEffect(() => {
+    dispatch(actions.getProfilePublicStart(creator));
     dispatch(actions.getDealsPublicStart(creator));
   }, []);
 
   return (
     <>
+      {profile.title}
       {deals.map(deal => (
         <>
           {deal.title}

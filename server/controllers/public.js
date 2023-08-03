@@ -15,6 +15,21 @@ exports.getCreators = async (req, res) => {
 };
 
 /**
+ * Retrieve profile of a creator who has authenticated
+ * @param {*} req
+ * @param {*} res
+ * @returns {object}
+ */
+exports.getProfile = async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ owner: req.params.creator });
+    return res.json(profile);
+  } catch (err) {
+    return res.status(400).json(err);
+  }
+};
+
+/**
  * Retrieve deals of a creator
  * @param {*} req
  * @param {*} res

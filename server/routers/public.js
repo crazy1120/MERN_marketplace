@@ -15,7 +15,14 @@ router.route("/creators").get(public.getCreators);
  * @methods GET
  * @access Public
  */
-router.route("/creators/:creator").get(public.getDeals);
+router.route("/creators/:creator").get(public.getProfile);
+
+/**
+ * @route api/public/creators/:creator
+ * @methods GET
+ * @access Public
+ */
+router.route("/creators/:creator/deals").get(public.getDeals);
 
 /**
  * @route api/public/creators/:id
