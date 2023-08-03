@@ -32,7 +32,7 @@
   margin: 0 15px 0 30px;
 }
 
-.creator-box > span :first-child {
+.creator-box span:first-child {
   cursor: pointer;
 }
 
@@ -52,4 +52,66 @@
   background: white;
   border: none;
   cursor: pointer;
+}
+
+.custom-profile-div {
+  padding-bottom: 20px;
+}
+.custom-profile-comp-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.custom-profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.custom-profile-name {
+  display: block;
+  margin: 10px 0px 10px 0px;
+}
+.custom-profile-intro {
+  width: 50%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+.custom-deal-intro {
+  width: 50%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+.custom-profile-intro:hover {
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4), 0 12px 30px 0 rgba(0, 0, 0, 0.29);
+}
+.about-us {
+  font-size: 20px;
+  font-weight: bold;
+}
+.custom-deal-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.custom-deal-name {
+  margin: 0px;
+  display: inline;
+}
+.custom-deal-price {
+  display: inline;
+}
+.custom-deal-arrow {
+  float: right;
+}
+.custom-deal-price-div {
+  display: inline-block;
+  float: right;
+}
+.custom-deal-desc-div {
+  margin-top: 20px;
 }

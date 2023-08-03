@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { actions } from "../../redux/slices/profile";
 import { BrandSelectiveRender } from ".";
+import UserProfile from "./components/profile";
+import Deal from "./components/deal";
 
 const CreatorOverview = ({ creator }) => {
   const dispatch = useDispatch(),
@@ -16,13 +18,17 @@ const CreatorOverview = ({ creator }) => {
 
   return (
     <>
-      {profile.title}
-      {deals.map(deal => (
-        <>
-          {deal.title}
-          <br />
-        </>
-      ))}
+      <div className="custom-profile-div">
+        <UserProfile feature={profile} />
+      </div>
+      <div className="custom-deal-div">
+        {deals.map(deal => (
+          <>
+            <Deal feature={deal} />
+            <br />
+          </>
+        ))}
+      </div>
     </>
   );
 };
