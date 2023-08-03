@@ -29,7 +29,8 @@ const initialState = {
   appURL: "http://localhost:3000",
   // when in production, change appURL to real url
   // appURL: 'https://amplichat.com',
-
+  googleLink: "https://accounts.google.com",
+  linkedinLink: "https://linkedin.com",
   appLogo: appLogo,
   appName: "Developing",
 
