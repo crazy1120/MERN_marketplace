@@ -1,4 +1,3 @@
-// Server initialization & module requirements
 const app = require("express")(),
   cors = require("cors"),
   morgan = require("morgan"),
@@ -21,7 +20,7 @@ app
 jwtPassport(passport);
 
 // Main routing
-app.use("/api", require("./routers"));
+app.use("/api", require("./routes"));
 
 // Server error handling
 app.use((err, req, res, next) => {

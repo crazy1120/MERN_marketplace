@@ -10,5 +10,4 @@ module.exports = {
   signUp: validator(require("./signUp")),
 
   // Validators of creator actions
-  dealFormat: validator(require("./dealFormat")),
 };
