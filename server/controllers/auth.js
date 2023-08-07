@@ -7,12 +7,13 @@ const { User } = require("../models"),
 
 /**
  * Register a new user object with user info
- * @param {*} req
- * @param {*} res
- * @returns {object}
+ * @param {*} req - Request from frontend containing user info
+ * @param {*} res - Response from server containing success or errors msg
+ * @returns {object} - Response object
  */
 exports.signUp = async (req, res) => {
-  const { name, email, password, level } = req.body;
+  const { name, email, birthday, gender, location, phone, password, level } =
+    req.body;
 
   //Check email existence
   const user = await User.findOne({ email });
@@ -25,6 +26,10 @@ exports.signUp = async (req, res) => {
   const newUser = new User({
     name,
     email,
+    birthday,
+    gender,
+    location,
+    phone,
     password,
     level: levelOption[level],
   });
@@ -41,9 +46,9 @@ exports.signUp = async (req, res) => {
 
 /**
  * Sign in a user with email and pwd
- * @param {*} req
- * @param {*} res
- * @returns {object}
+ * @param {*} req - Request from frontend containing email and pwd of user
+ * @param {*} res - Response from server containing bearer token or errors msg
+ * @returns {object} - Response object
  */
 exports.signIn = async (req, res) => {
   const { email, password } = req.body;
@@ -63,6 +68,7 @@ exports.signIn = async (req, res) => {
       name: user.name,
       email: user.email,
       level: user.level,
+      birthday: user.birthday,
     };
 
     jwt.sign(payload, keys.secretOrKey, { expiresIn: "24h" }, (err, token) =>
@@ -76,11 +82,11 @@ exports.signIn = async (req, res) => {
 
 /**
  * Get authenticated user's info
- * @param {*} req
- * @param {*} res
- * @returns {object}
+ * @param {*} req - Request from frontend containing user
+ * @param {*} res - Response from server containing user info
+ * @returns {object} - Response object
  */
 exports.getUser = async (req, res) => {
-  const { name, email } = req.user;
-  return res.json({ name, email });
+  const { name, email, birthday } = req.user;
+  return res.json({ name, email, birthday });
 };

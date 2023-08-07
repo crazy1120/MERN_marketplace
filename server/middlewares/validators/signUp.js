@@ -4,7 +4,16 @@ const isEmpty = require("./is_empty");
 // Validation middleware necessary when register a new user
 module.exports = (data) => {
   const errors = {};
-  const fields = ["name", "email", "password", "confirm"];
+  const fields = [
+    "name",
+    "email",
+    "birthday",
+    "gender",
+    "location",
+    "phone",
+    "password",
+    "confirm",
+  ];
 
   for (const field of fields) {
     data[field] = !isEmpty(data[field]) ? data[field] : "";

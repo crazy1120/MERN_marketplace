@@ -1,0 +1,83 @@
+#createLink {
+  display: flex;
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+  justify-content: flex-end;
+  padding: 20px 0;
+}
+
+#creatorDashboard .deals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#creatorDashboard .deal {
+  background-color: #ddd;
+  min-width: 300px;
+  flex-basis: 20%;
+  flex-grow: 1;
+  word-break: break-all;
+  padding: 15px;
+  border: 2px solid #555;
+  border-radius: 25px;
+  margin: 20px;
+}
+
+#creatorDashboard .deal h4 {
+  text-align: center;
+  margin: 0;
+}
+
+#creatorDashboard .deal > div:first-of-type {
+  background-color: #efefef;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+#handleDealForm {
+  margin: 0 auto;
+  width: 400px;
+}
+
+/* Profile Styles */
+
+.create-profile-box {
+  width: 400px;
+  text-align: center;
+  background: #444;
+  padding-bottom: 3%;
+  border-radius: 12px;
+  border: 3px solid #444;
+  box-shadow: 0 0 15px rgba(31, 44, 55, 0.9);
+  margin: 40px auto;
+}
+
+.create-profile-box h6 {
+  font-size: 24px;
+  color: #fff;
+  margin: 2% 0;
+}
+
+.create-profile-box > p:first-of-type {
+  font-size: 22px;
+}
+
+.create-profile-box p {
+  margin: 0;
+  padding-bottom: 5%;
+  font-size: 20px;
+  color: white;
+}
+
+.deals-guest {
+  text-align: center;
+  line-height: 4;
+}
+
+.sentence-btn {
+  margin: 2% 0;
+  text-decoration: none;
+  padding: 5px 6px 8px;
+}
