@@ -58,9 +58,11 @@ const SignUpComp = () => {
           onChange={handleChange}
           placeholder="Input your name."
         />
-        {errors.name && (
-          <span className={classNameState.error}>{errors.name}</span>
-        )}
+        {errors
+          ? errors.name && (
+              <span className={classNameState.error}>{errors.name}</span>
+            )
+          : ""}
         <input
           type="text"
           name="email"
@@ -70,9 +72,11 @@ const SignUpComp = () => {
           onChange={handleChange}
           placeholder="Input your email."
         />
-        {errors.email && (
-          <span className={classNameState.error}>{errors.email}</span>
-        )}
+        {errors
+          ? errors.email && (
+              <span className={classNameState.error}>{errors.email}</span>
+            )
+          : ""}
         <input
           type="password"
           name="password"
@@ -82,9 +86,11 @@ const SignUpComp = () => {
           onChange={handleChange}
           placeholder="Set password."
         />
-        {errors.password && (
-          <span className={classNameState.error}>{errors.password}</span>
-        )}
+        {errors
+          ? errors.password && (
+              <span className={classNameState.error}>{errors.password}</span>
+            )
+          : ""}
         <input
           type="password"
           name="confirm"
@@ -94,9 +100,11 @@ const SignUpComp = () => {
           onChange={handleChange}
           placeholder="Enter your confirm password."
         />
-        {errors.confirm && (
-          <span className={classNameState.error}>{errors.confirm}</span>
-        )}
+        {errors
+          ? errors.confirm && (
+              <span className={classNameState.error}>{errors.confirm}</span>
+            )
+          : ""}
         <input
           type="button"
           value="Sign Up"
