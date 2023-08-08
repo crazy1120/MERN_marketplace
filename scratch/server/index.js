@@ -5,12 +5,7 @@ const cors = require("cors");
 const { OAuth2Client } = require("google-auth-library");
 const jwt = require("jsonwebtoken");
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-    methods: "GET,POST,PUT,DELETE,OPTIONS",
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 let DB = [];
@@ -109,4 +104,4 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.listen("5152", () => console.log("Server running on port 5152"));
+app.listen("5000", () => console.log("Server running on port 5000"));

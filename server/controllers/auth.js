@@ -12,8 +12,7 @@ const { User } = require("../models"),
  * @returns {object} - Response object
  */
 exports.signUp = async (req, res) => {
-  const { name, email, birthday, gender, location, phone, password, level } =
-    req.body;
+  const { name, email, password } = req.body;
 
   //Check email existence
   const user = await User.findOne({ email });
@@ -22,16 +21,10 @@ exports.signUp = async (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const levelOption = { creator: 1, brand: 2, buyer: 3 };
   const newUser = new User({
     name,
     email,
-    birthday,
-    gender,
-    location,
-    phone,
     password,
-    level: levelOption[level],
   });
 
   bcrypt.genSalt(10, (err, salt) => {
