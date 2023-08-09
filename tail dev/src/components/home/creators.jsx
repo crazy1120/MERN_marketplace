@@ -16,7 +16,7 @@ const Creators = () => {
   const { state: linksState } = useContext(linksContext);
   const { state: textsState } = useContext(textsContext);
   return (
-    <section className="-mt-32 bg-brown px-4 pb-20 pt-4">
+    <section className=" bg-brown px-4 pb-20 pt-4">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featuresData.map(({ color, title, icon, description }) => (

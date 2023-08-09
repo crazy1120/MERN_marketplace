@@ -24,51 +24,25 @@ export const Navbar = ({ routes }) => {
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      {routes.map(({ name, path, icon, href, target }) => (
-        <Typography
-          key={name}
-          as="li"
-          variant="small"
-          color="inherit"
-          className="capitalize"
-        >
-          {href ? (
-            <a
-              href={href}
-              target={target}
-              className="flex items-center gap-1 p-1 font-normal"
-            >
-              {icon &&
-                React.createElement(icon, {
-                  className: "w-[18px] h-[18px] opacity-75 mr-1",
-                })}
-              {name}
-            </a>
-          ) : (
-            <Link
-              to={path}
-              target={target}
-              className="flex items-center gap-1 p-1 font-normal"
-            >
-              {icon &&
-                React.createElement(icon, {
-                  className: "w-[18px] h-[18px] opacity-75 mr-1",
-                })}
-              {name}
-            </Link>
-          )}
-        </Typography>
+      {routes.map(({ name, path, icon }) => (
+        <li key={name}>
+          <Link to={path} className="flex items-center gap-1 p-1 font-normal">
+            {icon &&
+              React.createElement(icon, {
+                className: "w-[26px] h-[26px] mr-1",
+              })}
+            {name}
+          </Link>
+        </li>
       ))}
     </ul>
   );
 
   return (
-    <MTNavbar color="transparent" className="p-3">
+    <nav className="bg-primary p-3">
       <div className="container mx-auto flex items-center justify-between text-black">
         <Link to="/">
-          <Typography className="ml-2 mr-4 cursor-pointer py-1.5 text-2xl font-bold">
-            {textsState.app_title}
-          </Typography>
+          <img src="./img/logo.png" className="w-36" />
         </Link>
         <div className="hidden lg:block">{navList}</div>
 
@@ -91,7 +65,7 @@ export const Navbar = ({ routes }) => {
       >
         <div className="container mx-auto">{navList}</div>
       </MobileNav>
-    </MTNavbar>
+    </nav>
   );
 };
 

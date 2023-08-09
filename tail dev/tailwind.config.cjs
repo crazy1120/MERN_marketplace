@@ -4,6 +4,26 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 module.exports = withMT({
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      sans: [
+        "ui-sans-serif",
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Arial",
+        "Noto Sans",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji",
+      ],
+      satoshi: ["Satoshi", "sans-serif"],
+      heading: ["heading", "sans-serif"],
+    },
     screens: {
       xs: "480px",
       sm: "640px",
@@ -13,7 +33,7 @@ module.exports = withMT({
       "2xl": "1440px",
     },
     colors: {
-      primary: "#F5F3EA",
+      primary: "#F7F5FF",
       brown: "#ff9966",
       pink: "#EDA6E6",
       yellow: "#FFF480",

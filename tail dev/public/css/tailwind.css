@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "heading";
+  src: url(../fonts/heading2.woff2);
+}
