@@ -3,4 +3,5 @@ module.exports = {
   creator: require("./creator"),
   brand: require("./brand"),
   public: require("./public"),
+  admin: require("./admin"),
 };

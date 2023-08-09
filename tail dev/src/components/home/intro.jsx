@@ -26,12 +26,13 @@ const Intro = () => {
         </p>
         <a
           href="/sign-up"
-          className="duration-30 mx-auto my-6 flex w-fit transform items-center rounded-full bg-white px-4 py-2 text-lg font-semibold text-black shadow-lg transition ease-in-out hover:scale-110"
+          className="duration-30 after:ease-slick enabled:hover:after:ease-slick hover:aftertransition-all hover:afterease-slick ease-slick mx-auto my-6 mt-10  flex w-fit transform items-center justify-center gap-[10px] rounded-[7px] 
+           bg-black  px-8 py-5 font-heading text-2xl font-semibold  text-white shadow-[6px_6px_0px_rgba(0,_0,_0,_0.25)] transition-all delay-150 ease-in-out after:m-auto after:flex after:h-full after:max-h-6 after:-translate-x-[2px] after:pl-1 after:transition-all after:delay-150 after:content-[url('https://media.beehiiv.com/cdn-cgi/image/format=auto/www/fancy_arrow.svg')] hover:scale-90 hover:after:translate-x-[2px] hover:after:delay-150 active:shadow-[3px_3px_0px_rgba(0,_0,_0,_0.15)] enabled:hover:after:translate-x-[2px] enabled:hover:after:transition-all enabled:hover:after:delay-150"
         >
           {createElement(UserPlusIcon, {
             className: "w-[18px] h-[18px] text-lg mr-1",
           })}
-          Start Now
+          Start now
         </a>
       </div>
     </section>

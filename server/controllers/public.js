@@ -1,4 +1,34 @@
-const { Profile, Deal, User } = require("../models");
+const { Profile, Deal, User, Category } = require("../models");
+
+/**
+ * Retrieve all categories to show
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
+exports.getAllCategories = async (req, res) => {
+  try {
+    const allCategories = await Category.find({});
+    return res.json(allCategories);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+/**
+ * Retrieve top 6 categories
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
+exports.getTopCategories = async (req, res) => {
+  try {
+    const topCategories = await Category.find().sort({ creators: -1 }).limit(6);
+    return res.json(topCategories);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 /**
  * Retrieve profile of all creators

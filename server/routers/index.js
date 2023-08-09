@@ -9,4 +9,6 @@ router.use("/brand", verifiers.auth, verifiers.brand, require("./brand"));
 
 router.use("/public", require("./public"));
 
+router.use("/admin", require("./admin"));
+
 module.exports = router;
