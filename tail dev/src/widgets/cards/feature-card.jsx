@@ -6,7 +6,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 
-export function FeatureCard({ color, icon, title, description }) {
+const FeatureCard = ({ color, icon, title, description }) => {
   return (
     <Card className="rounded-2xl shadow-lg shadow-gray-500/10">
       <CardBody className="px-8 text-center">
@@ -27,7 +27,7 @@ export function FeatureCard({ color, icon, title, description }) {
       </CardBody>
     </Card>
   );
-}
+};
 
 FeatureCard.defaultProps = {
   color: "blue",

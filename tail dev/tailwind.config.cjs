@@ -34,6 +34,7 @@ module.exports = withMT({
     },
     colors: {
       primary: "#F7F5FF",
+      secondary: "#FFF5E5   ",
       brown: "#ff9966",
       pink: "#EDA6E6",
       yellow: "#FFF480",
@@ -42,6 +43,23 @@ module.exports = withMT({
       green: "#66CCA0",
       black: "#1B1C1D",
       white: "#ffffff",
+
+      software: "#007ACC",
+      software_s: "#FF9900",
+      finance: "#008080",
+      finance_s: "#FFD700",
+      health: "#00B050",
+      health_s: "#ffffff",
+      education: "#1F7AC8",
+      education_s: "#FF6F00",
+      food: "#FF9933",
+      food_s: "#996633",
+      fashion: "#E6007E",
+      fashion_s: "#000000",
+      realest: "#FF4500",
+      realest_s: "#006400",
+      consult: "#666666",
+      consult_s: "#FFB300",
     },
     extend: {
       boxShadow: {

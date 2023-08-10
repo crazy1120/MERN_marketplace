@@ -6,7 +6,9 @@ import { ThemeProvider } from "@material-tailwind/react";
 
 import App from "./app";
 import store from "./redux";
+import "aos/dist/aos.css";
 import "../public/css/tailwind.css";
+import "../public/css/styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

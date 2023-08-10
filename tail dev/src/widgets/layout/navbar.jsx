@@ -60,7 +60,7 @@ export const Navbar = ({ routes }) => {
         </IconButton>
       </div>
       <MobileNav
-        className="rounded-xl bg-blue px-4 pb-4 pt-2 text-blue-gray-900"
+        className="rounded-xl bg-secondary px-4 pb-4 pt-2 text-blue-gray-900"
         open={openNav}
       >
         <div className="container mx-auto">{navList}</div>
