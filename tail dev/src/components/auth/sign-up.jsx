@@ -1,104 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { classNamesContext } from "@/contexts";
-import { signInVaidator } from "./validator";
-import { actions } from "@/redux/slices/auth";
-import Input from "@/widgets/input";
+import SignUpForm from "./signUpForm";
 
 const SignUpComp = () => {
-  const dispatch = useDispatch();
-  const { state: classNameState } = useContext(classNamesContext);
-
-  const { error: serverError } = useSelector((state) => state.auth);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirm: "",
-  });
-  const [errors, setErrors] = useState({});
-
-  // After receive server side error message, set it to state so as to display it.
-  useEffect(() => {
-    setErrors((prevErrors) => ({ ...prevErrors, ...serverError }));
-  }, [serverError]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = signInVaidator(formData);
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      dispatch(actions.signUpStart(formData));
-    }
-  };
+  const { loading, error } = useSelector((state) => state.auth);
 
   return (
     <div className="container mx-auto flex flex-1 items-center justify-center p-4 text-base">
-      <form className={classNameState.form}>
-        <span className={classNameState.pTitle}>Sign Up with Email</span>
-        <Input
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          errors={errors}
-        />
-        <Input
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          errors={errors}
-        />
-        <Input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          errors={errors}
-        />
-        <Input
-          type="password"
-          name="confirm"
-          value={formData.confirm}
-          onChange={handleChange}
-          errors={errors}
-        />
-        <input
-          type="button"
-          value="Sign Up"
-          className={classNameState.button}
-          onClick={handleSubmit}
-        />
-        <div className="my-5 flex flex-wrap items-center justify-between">
-          <span className={classNameState.pTitle}>Already have account?</span>
-          <input
-            type="button"
-            value="Sign In"
-            className={classNameState.buttonRedirect}
-          />
+      {loading && (
+        <div className="fixed left-0 top-0 z-50 flex h-screen w-screen items-center justify-center bg-gray-900 bg-opacity-50">
+          <div className="border-blue-500 h-16 w-16 animate-spin rounded-full border-t-4"></div>
         </div>
-        <span className={classNameState.pTitle}>Or continue with</span>
-        <div className=" my-5 flex flex-wrap items-center justify-around">
-          <input
-            type="button"
-            value="Google"
-            className={classNameState.buttonInline}
-          />
-          <input
-            type="button"
-            value="Linkedin"
-            className={classNameState.buttonInline}
-          />
-        </div>
-      </form>
+      )}
+      <SignUpForm loading={loading} serverError={error} />
     </div>
   );
 };

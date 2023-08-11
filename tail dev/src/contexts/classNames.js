@@ -2,6 +2,7 @@ import { createContext } from "react";
 
 const state = {
   form: "flex flex-col w-full max-w-[40rem] rounded-xl shadow-md_50 py-5",
+  formLoading: "pointer-events-none",
   pTitle: "underline text-xl px-7  font-bold",
   input:
     "rounded-lg shadow-md border-none my-3 focus:ring-2 focus:ring-white w-1/2 mx-auto",
