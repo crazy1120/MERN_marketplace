@@ -51,7 +51,7 @@ const publicRoutes = [
   {
     icon: ArrowRightOnRectangleIcon,
     name: "Sign In",
-    path: "sign-in",
+    path: "/sign-in",
     element: (
       <PublicRoute>
         <SignIn />
@@ -61,7 +61,7 @@ const publicRoutes = [
   {
     icon: UserPlusIcon,
     name: "Sign Up",
-    path: "sign-up",
+    path: "/sign-up",
     element: (
       <PublicRoute>
         <SignUp />

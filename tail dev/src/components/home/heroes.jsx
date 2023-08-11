@@ -1,21 +1,11 @@
-import React, { useEffect } from "react";
-import Aos from "aos";
+import React from "react";
 
 import { CreatorBriefCard } from "@/widgets/cards";
 
 const Heroes = () => {
-  useEffect(() => {
-    Aos.init({
-      duration: 2000,
-    });
-  }, []);
-
   return (
     <div className="w-full bg-primary">
-      <div
-        className="bg-software py-3 text-center font-heading text-3xl text-software_s"
-        data-aos="flip-left"
-      >
+      <div className="bg-software py-3 text-center font-heading text-3xl text-software_s">
         Meet the world's top creators and businesses
       </div>
       <div className="container mx-auto flex flex-wrap justify-between py-6">

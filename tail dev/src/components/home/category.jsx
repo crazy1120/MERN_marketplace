@@ -1,21 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Aos from "aos";
 
-import CreatorCard from "@/widgets/cards/creator-card";
+const Category = ({ title, aos }) => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
-const Category = ({ title, bg, text }) => {
   return (
-    <div className="w-full">
-      <div className={`${bg} py-3 text-center font-heading text-3xl ${text}`}>
-        {title}
-      </div>
-      <div className="container mx-auto flex flex-wrap justify-between py-6">
-        <CreatorCard width="w-1/4" aos="fade-down-right" />
-        <CreatorCard width="w-1/4" aos="fade-down-right" />
-        <CreatorCard width="w-1/4" aos="fade-down-right" />
-        <CreatorCard width="w-1/4" aos="fade-down-right" />
-        <CreatorCard width="w-1/4" aos="fade-down-right" />
-        <CreatorCard width="w-1/4" aos="fade-down-right" />
-      </div>
+    <div
+      className="mx-3 flex h-60 w-60 flex-wrap content-around justify-center rounded-xl py-2 text-center font-satoshi shadow-md_50"
+      data-aos={`flip-${aos}`}
+    >
+      <h4 className="text-3xl underline">{title}</h4>
+      <span className="text-2xl">1K Creators</span>
+      <span className="text-2xl">300 Brands</span>
     </div>
   );
 };

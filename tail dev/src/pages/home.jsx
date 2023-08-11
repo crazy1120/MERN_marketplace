@@ -15,7 +15,7 @@ export const Home = () => {
     <Public>
       <Intro />
       <Heroes />
-      {/* <Categories /> */}
+      <Categories />
       {/* <Creators /> */}
       {/* <Brands /> */}
       {/* <Usecases /> */}

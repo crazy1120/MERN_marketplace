@@ -4,7 +4,7 @@ import {
   HandThumbUpIcon,
   ChatBubbleLeftIcon,
 } from "@heroicons/react/24/outline";
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 
 const CreatorBriefCard = ({ width, aos, delay }) => {
   useEffect(() => {
@@ -20,11 +20,6 @@ const CreatorBriefCard = ({ width, aos, delay }) => {
       <img src="./img/me.jpg" className="h-16 w-16 rounded-full" />
 
       <div className="flex flex-col justify-start">
-        {/* <span className="my-2 flex flex-wrap justify-end">
-          <FaFacebook className="h-6 w-6" />
-          <FaTwitter className="h-6 w-6" />
-          <FaLinkedin className="h-6 w-6" />
-        </span> */}
         <h5 className="mb-2 flex items-center justify-between text-center font-satoshi text-xl font-bold">
           Alex Borgan
           <FaTwitter className="h-6 w-6 text-software" />

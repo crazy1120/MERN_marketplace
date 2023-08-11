@@ -60,6 +60,10 @@ module.exports = withMT({
       realest_s: "#006400",
       consult: "#666666",
       consult_s: "#FFB300",
+
+      f1e9fa: "#f1e9fa",
+      e9d8f1: "#e9d8f1",
+      e1c7e9: "#e1c7e9",
     },
     extend: {
       boxShadow: {

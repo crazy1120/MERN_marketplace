@@ -1,30 +1,43 @@
-import React, { useContext, createElement, useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
 import { useWindowScroll } from "react-use";
+import classNames from "classnames";
 
-const Bg = () => {
+const YourComponent = () => {
   const { y: scrollY } = useWindowScroll();
-  useEffect(() => {
-    // Calculate the scale factor based on scroll position
-    const scaleFactor = 1 - scrollY / 1000; // Adjust the divisor to control the zoom-out intensity
-    const transformValue = `scale(${scaleFactor})`;
+  const [backgroundColor, setBackgroundColor] = useState("bg-transparent");
 
-    // Apply the transform to the image element
-    const imgElement = document.querySelector(".img-container img");
-    if (imgElement) {
-      imgElement.style.transform = transformValue;
-    }
+  useEffect(() => {
+    const scrollPercent =
+      (scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+
+    const breakpoints = [
+      { percent: 0, color: "bg-transparent" },
+      { percent: 25, color: "bg-red" },
+      { percent: 50, color: "bg-yellow" },
+      { percent: 75, color: "bg-green" },
+      { percent: 100, color: "bg-blue" },
+    ];
+
+    const matchedBreakpoint = breakpoints.find(
+      (breakpoint) => scrollPercent <= breakpoint.percent
+    );
+    const matchedColor = matchedBreakpoint
+      ? matchedBreakpoint.color
+      : breakpoints[breakpoints.length - 1].color;
+
+    setBackgroundColor(matchedColor);
   }, [scrollY]);
+
   return (
-    <div className="relative">
-      <img
-        src="/img/titleImage.png"
-        alt="Image"
-        className="absolute inset-0 mx-auto w-[600px] transform object-cover transition-transform duration-300"
-      />
-      <div className="absolute inset-0 z-0 h-full w-full bg-cover bg-center bg-no-repeat"></div>
+    <div className={classNames("h-screen", backgroundColor)}>
+      {/* Content */}
+      <div className=" h-40 w-40 border-solid border-black">df</div>
+      <div className="h-40 w-40 border-solid border-black">wef</div>
+      <div className="h-40 w-40 border-solid border-black">wef</div>
+      <div className="h-40 w-40 border-solid border-black">wef</div>
+      <div className="h-40 w-40 border-solid border-black">wef</div>
     </div>
   );
 };
 
-export default Bg;
+export default YourComponent;
